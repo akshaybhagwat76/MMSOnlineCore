@@ -36,6 +36,14 @@ namespace MMS.data.Infrastructure
                 return conn;
             }
         }
+        public string GetConnectionString
+        {
+            get
+            {
+                var connectionString = Configuration.GetConnectionString("DefaultConnection");
+                return connectionString;
+            }
+        }
 
         #region IDisposable Support
         private bool disposedValue = false; // To detect redundant calls

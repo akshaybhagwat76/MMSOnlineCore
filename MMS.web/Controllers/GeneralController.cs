@@ -67,7 +67,7 @@ namespace MMS.web.Controllers
 
             return Json(data.Select(o => new KeyContent
             {
-                Key = (o.CommodityID != null ? o.CommodityID.Value.ToString() : null),
+                Key = (o.CommodityID != null ? General.Encode(o.CommodityID.Value.ToString()) : null),
                 Content = o.Commodity_Name,
             }));
         }

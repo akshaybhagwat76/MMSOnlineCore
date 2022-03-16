@@ -33,7 +33,7 @@ namespace MMS.data.Entities
 		/// <summary>
 		///  CreatedBy (System.Guid? )
 		/// </summary>
-		public System.Guid? CreatedBy { get; set; }
+		public int? CreatedBy { get; set; }
 		/// <summary>
 		///  CreatedOn (System.DateTime? )
 		/// </summary>

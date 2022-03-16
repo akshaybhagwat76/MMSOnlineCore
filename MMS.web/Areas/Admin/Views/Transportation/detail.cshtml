@@ -31,7 +31,7 @@
                     <h3 class="card-title">@ViewData["Title"]</h3>
                 </div>
                 <!-- /.card-header -->
-                @using (Html.BeginForm("detail", "transportation", FormMethod.Post, new { area = "tool", @enctype = "multipart/form-data" }))
+                @using (Html.BeginForm("detail", "transportation", FormMethod.Post, new {  @enctype = "multipart/form-data" }))
                 {
                     @Html.AntiForgeryToken()
                     @Html.ValidationSummary(true)
@@ -41,21 +41,21 @@
                         <div class="row">
                             <div class="col-md-7">
                                 <div class="form-group">
-                                    <label for="BranchName">Location Name</label>
+                                    <label for="BranchName" class="requiredLabel">Location Name</label>
                                     @Html.ToolKit().AjaxDropdownFor(c => c.LocationId).Value(Model.LocationId).Url(Url.Content("~/general/getAllLocationsList")).Load(true)
-                                    *@Html.ValidationMessageFor(c => c.LocationId, "", new { @class = "text-danger" })
+                                  @Html.ValidationMessageFor(c => c.LocationId, "", new { @class = "text-danger" })
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="Mobile">Commodity Name</label>
+                                    <label for="Mobile">Commodity Name *</label>
                                     @Html.ToolKit().AjaxDropdownFor(c => c.CommodityId).Value(Model.CommodityId).Url(Url.Content("~/general/getAllCommodityList")).Load(true)
-                                    *@Html.ValidationMessageFor(c => c.CommodityId, "", new { @class = "text-danger" })
+                                    @Html.ValidationMessageFor(c => c.CommodityId, "", new { @class = "text-danger" })
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="Mobile">Notes</label>
+                                    <label for="Mobile">Notes *</label>
                                     @Html.TextAreaFor(c => c.Notes, new { @class = "form-control" })
-                                    *@Html.ValidationMessageFor(c => c.Notes, "", new { @class = "text-danger" })
+                                    @Html.ValidationMessageFor(c => c.Notes, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                         </div>

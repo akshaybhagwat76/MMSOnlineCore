@@ -26,6 +26,8 @@ namespace MMS.data.Repository
 		Task<IEnumerable<Users>> Search(System.Int32? userID, System.String emailAddress, System.String name, System.Byte[] passwordHash, System.String salt, System.Int32? passwordVersion, System.Boolean? accountDisabled, System.String accountID);
 		Task<int> Delete(System.Int32? userID);
 		Task<int> Insert(Users model);
+		string GetConnectingString();
+
 		Task<int> Insert(System.Int32? userID, System.String emailAddress, System.String name, System.Byte[] passwordHash, System.String salt, System.Int32? passwordVersion, System.Boolean? accountDisabled, System.String accountID);
 		Task<int> Update(Users model);
 		Task<int> Update(System.Int32? userID, System.String emailAddress, System.String name, System.Byte[] passwordHash, System.String salt, System.Int32? passwordVersion, System.Boolean? accountDisabled, System.String accountID);

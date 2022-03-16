@@ -24,6 +24,10 @@ namespace MMS.data.Service
 		{
 			_unitOfWork = unitOfWork;
 		}
+		public string GetConnectingString()
+		{
+			return _unitOfWork.UsersRepository.GetConnectingString();
+		}
 		public async Task<Users> Get(System.Int32? userID)
 		{
 			return await _unitOfWork.UsersRepository.Get(userID);

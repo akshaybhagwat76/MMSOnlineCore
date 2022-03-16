@@ -17,6 +17,8 @@ namespace MMS.data.Infrastructure
 	public interface IConnectionFactory : IDisposable
 	{
 		IDbConnection GetConnection { get; }
+		string GetConnectionString { get; }
+
 	}
 }
 

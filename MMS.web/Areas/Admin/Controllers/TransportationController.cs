@@ -60,7 +60,7 @@ namespace MMS.web.Areas.Admin.Controllers
                             LocationID = (int)m.LocationId.ToDecode(),
                             Notes = m.Notes,
                             CreatedOn = DateTime.UtcNow,
-                            CreatedBy = Guid.Parse(UserID),
+                            CreatedBy = Convert.ToInt32(UserID),
                         });
 
                         return RedirectToAction("detail", new { msg = "Transportation successfully added." });

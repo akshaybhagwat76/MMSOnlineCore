@@ -107,7 +107,7 @@ namespace MMS.data.Repository
 				
 			}
 		}
-		public async Task<IEnumerable<TransectionSetting>> Search(System.Int32? id, System.Int32? locationID, System.Int32? commodityID, System.String notes, System.Guid? createdBy, System.DateTime? createdOn)
+		public async Task<IEnumerable<TransectionSetting>> Search(System.Int32? id, System.Int32? locationID, System.Int32? commodityID, System.String notes, System.Int32? createdBy, System.DateTime? createdOn)
 		{
 			try
 			{
@@ -120,7 +120,7 @@ namespace MMS.data.Repository
 					param.Add("locationID",locationID, DbType.Int32);
 					param.Add("commodityID",commodityID, DbType.Int32);
 					param.Add("notes",notes, DbType.String);
-					param.Add("createdBy",createdBy, DbType.Guid);
+					param.Add("createdBy",createdBy, DbType.Int32);
 					param.Add("createdOn",createdOn, DbType.DateTime);
 					
 					var list = await SqlMapper.QueryAsync<TransectionSetting>(connection, query, param, commandType: CommandType.StoredProcedure);
@@ -148,7 +148,7 @@ namespace MMS.data.Repository
 		/// <param name="notes">System.String</param>
 		/// <param name="createdBy">System.Guid?</param>
 		/// <param name="createdOn">System.DateTime?</param>
-		public async Task<System.Int32> Insert(System.Int32? locationID, System.Int32? commodityID, System.String notes, System.Guid? createdBy, System.DateTime? createdOn)
+		public async Task<System.Int32> Insert(System.Int32? locationID, System.Int32? commodityID, System.String notes, int? createdBy, System.DateTime? createdOn)
 		{
 			try
 			{
@@ -160,7 +160,7 @@ namespace MMS.data.Repository
 					param.Add("locationID", locationID, DbType.Int32);
 					param.Add("commodityID", commodityID, DbType.Int32);
 					param.Add("notes", notes, DbType.String);
-					param.Add("createdBy", createdBy, DbType.Guid);
+					param.Add("createdBy", createdBy, DbType.Int32);
 					param.Add("createdOn", createdOn, DbType.DateTime);
 					var objs = await SqlMapper.ExecuteScalarAsync<System.Int32>(connection, query, param, commandType: CommandType.StoredProcedure);
 					return objs;
@@ -188,7 +188,7 @@ namespace MMS.data.Repository
 					param.Add("locationID", model.LocationID, DbType.Int32);
 					param.Add("commodityID", model.CommodityID, DbType.Int32);
 					param.Add("notes", model.Notes, DbType.String);
-					param.Add("createdBy", model.CreatedBy, DbType.Guid);
+					param.Add("createdBy", model.CreatedBy, DbType.Int32);
 					param.Add("createdOn", model.CreatedOn, DbType.DateTime);
 					var objs = await SqlMapper.ExecuteScalarAsync<System.Int32>(connection, query, param, commandType: CommandType.StoredProcedure);
 					return objs;
@@ -212,7 +212,7 @@ namespace MMS.data.Repository
 		/// <param name="notes">System.String</param>
 		/// <param name="createdBy">System.Guid?</param>
 		/// <param name="createdOn">System.DateTime?</param>
-		public async Task<int> Update(System.Int32? id, System.Int32? locationID, System.Int32? commodityID, System.String notes, System.Guid? createdBy, System.DateTime? createdOn)
+		public async Task<int> Update(System.Int32? id, System.Int32? locationID, System.Int32? commodityID, System.String notes, int? createdBy, System.DateTime? createdOn)
 		{
 			try
 			{
@@ -225,7 +225,7 @@ namespace MMS.data.Repository
 					param.Add("locationID", locationID, DbType.Int32);
 					param.Add("commodityID", commodityID, DbType.Int32);
 					param.Add("notes", notes, DbType.String);
-					param.Add("createdBy", createdBy, DbType.Guid);
+					param.Add("createdBy", createdBy, DbType.Int32);
 					param.Add("createdOn", createdOn, DbType.DateTime);
 					var objs = await SqlMapper.ExecuteAsync(connection, query, param, commandType: CommandType.StoredProcedure);
 					
@@ -251,7 +251,7 @@ namespace MMS.data.Repository
 					param.Add("locationID", model.LocationID, DbType.Int32);
 					param.Add("commodityID", model.CommodityID, DbType.Int32);
 					param.Add("notes", model.Notes, DbType.String);
-					param.Add("createdBy", model.CreatedBy, DbType.Guid);
+					param.Add("createdBy", model.CreatedBy, DbType.Int32);
 					param.Add("createdOn", model.CreatedOn, DbType.DateTime);
 					var objs = await SqlMapper.ExecuteAsync(connection, query, param, commandType: CommandType.StoredProcedure);
 					return objs;

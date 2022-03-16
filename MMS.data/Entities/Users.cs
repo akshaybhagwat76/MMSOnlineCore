@@ -42,6 +42,7 @@ namespace MMS.data.Entities
 		///  AccountDisabled (System.Boolean? )
 		/// </summary>
 		public System.Boolean? AccountDisabled { get; set; }
+		public System.Boolean? Include_Transportation { get; set; }
 		/// <summary>
 		///  AccountID (System.String )
 		/// </summary>

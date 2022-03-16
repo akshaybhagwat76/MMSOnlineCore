@@ -1066,7 +1066,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:MMS.web.Controllers.HomeController.login(MMS.web.Models.LoginModels)">
+        <member name="M:MMS.web.Controllers.HomeController.SignIn(MMS.web.Models.LoginModels)">
             <summary>
             
             </summary>

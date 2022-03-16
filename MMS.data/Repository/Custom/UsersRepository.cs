@@ -18,11 +18,19 @@ using Dapper;
 using System.Threading.Tasks;
 using MMS.data.Infrastructure;
 using MMS.data.Entities;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace MMS.data.Repository
 {
 	public partial class UsersRepository : BaseRepository, IUsersRepository
 	{
+	
+		public IConfigurationRoot Configuration { get; }
+		public string GetConnectingString()
+		{
+			return connectionFactory.GetConnectionString;
+		}
 		public async Task<Users> Get(string email)
 		{
 			using (var connection = connectionFactory.GetConnection)

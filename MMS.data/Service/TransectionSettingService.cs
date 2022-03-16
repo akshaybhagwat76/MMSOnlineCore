@@ -40,7 +40,7 @@ namespace MMS.data.Service
 		{
 			return await _unitOfWork.TransectionSettingRepository.Search(pageIndex, pageSize,sortBy,orderBy);
 		}
-		public async Task<IEnumerable<TransectionSetting>> Search(System.Int32? id, System.Int32? locationID, System.Int32? commodityID, System.String notes, System.Guid? createdBy, System.DateTime? createdOn)
+		public async Task<IEnumerable<TransectionSetting>> Search(System.Int32? id, System.Int32? locationID, System.Int32? commodityID, System.String notes, System.Int32? createdBy, System.DateTime? createdOn)
 		{
 			return await _unitOfWork.TransectionSettingRepository.Search(id, locationID, commodityID, notes, createdBy, createdOn);
 		}
@@ -48,7 +48,7 @@ namespace MMS.data.Service
 		{
 			return await _unitOfWork.TransectionSettingRepository.Insert(usermodel);
 		}
-		public async Task<System.Int32> Insert(System.Int32? locationID, System.Int32? commodityID, System.String notes, System.Guid? createdBy, System.DateTime? createdOn)
+		public async Task<System.Int32> Insert(System.Int32? locationID, System.Int32? commodityID, System.String notes, System.Int32? createdBy, System.DateTime? createdOn)
 		{
 			return await _unitOfWork.TransectionSettingRepository.Insert(locationID, commodityID, notes, createdBy, createdOn);
 		}
@@ -56,7 +56,7 @@ namespace MMS.data.Service
 		{
 			return await _unitOfWork.TransectionSettingRepository.Update(usermodel);
 		}
-		public async Task<int> Update(System.Int32? id, System.Int32? locationID, System.Int32? commodityID, System.String notes, System.Guid? createdBy, System.DateTime? createdOn)
+		public async Task<int> Update(System.Int32? id, System.Int32? locationID, System.Int32? commodityID, System.String notes, System.Int32? createdBy, System.DateTime? createdOn)
 		{
 			return await _unitOfWork.TransectionSettingRepository.Update(id, locationID, commodityID, notes, createdBy, createdOn);
 		}

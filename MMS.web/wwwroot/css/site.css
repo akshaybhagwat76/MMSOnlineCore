@@ -35,3 +35,8 @@ body {
         display: none;
     }
 }
+.requiredLabel:after {
+    content: " *";
+    font-weight: bold;
+    color: red;
+}

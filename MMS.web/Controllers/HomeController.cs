@@ -4,14 +4,18 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using MMS.data.Entities;
 using MMS.data.UnitOfWork;
 using MMS.web.Extensions;
 using MMS.web.Models;
 using MMS.web.Services;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -69,9 +73,10 @@ namespace MMS.web.Controllers
         /// 
         /// </summary>
         /// <returns></returns>
-        public IActionResult login()
+        public  async Task<IActionResult> login()
         {
             LoginModels obj = new LoginModels();
+            HttpContext.Session.SetString("ConnString",_uowProvider.UsersRepository.GetConnectingString());
             return View(obj);
         }
 
@@ -91,33 +96,34 @@ namespace MMS.web.Controllers
         /// <param name="obj"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<ActionResult> login(LoginModels obj)
+        public async Task<ActionResult> SignIn(LoginModels loginDetails)
         {
-            var user = await _uowProvider.UsersRepository.Get(obj.Email);
-            if (user != null)
+            var userExists = await _uowProvider.UsersRepository.Search(null, loginDetails.Email, null, null, null, null, null, null);
+            if (userExists != null)
             {
-                var salt = user.Salt;
-                var comb = obj.Password + salt;
+                Users userData = null;
+                foreach (Users user in userExists)
+                {
+                    userData = user;
+                }
+                var salt = userData.Salt;
+                var comb = loginDetails.Password + salt;
                 var enc = Encryption.SHA512(comb);
                 var pre = ByteArrayToString(enc);
 
-                var post = ByteArrayToString(user.PasswordHash);
+                var post = ByteArrayToString(userData.PasswordHash);
+                HttpContext.Session.SetString("AccountId", userData.AccountID);
+                HttpContext.Session.SetString("UserID", userData.UserID.ToString());
+                HttpContext.Session.SetString("IncludeTransportation", userData.Include_Transportation.ToString());
 
                 if (pre == post)
                 {
-                    var account = await _uowProvider.AccountsRepository.Get(user.AccountID);
 
-                    HttpContext.Session.SetString("AccountId", user.AccountID);
-                    HttpContext.Session.SetString("UserID", user.UserID.ToString());
-                    HttpContext.Session.SetString("IncludeTransportation", account.Include_Transportation.ToString());
-
-                    return RedirectToAction("Index", "Home", new { area = "Admin"});
-                }
-                else {
-                    ModelState.AddModelError("", "You have entered invalid credentials.");
+                    return RedirectToAction("Index", "Home", new { area = "Admin" });
+                    //return RedirectToAction("Home", "Index", null);
                 }
             }
-            return View(obj);
+            return RedirectToAction("login");
         }
         static string ByteArrayToString(byte[] arrInput)
         {

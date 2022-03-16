@@ -21,12 +21,12 @@ namespace MMS.data.Service
 		Task<TransectionSetting> Get(System.Int32? id);
 		Task<IEnumerable<TransectionSetting>> Search(int pageIndex, int pageSize);
 		Task<IEnumerable<TransectionSetting>> Search(int pageIndex, int pageSize,string sortBy, string orderBy);
-		Task<IEnumerable<TransectionSetting>> Search(System.Int32? id, System.Int32? locationID, System.Int32? commodityID, System.String notes, System.Guid? createdBy, System.DateTime? createdOn);
+		Task<IEnumerable<TransectionSetting>> Search(System.Int32? id, System.Int32? locationID, System.Int32? commodityID, System.String notes, System.Int32? createdBy, System.DateTime? createdOn);
 		Task<int> Delete(System.Int32? id);
 		Task<System.Int32> Insert(TransectionSetting model);
-		Task<System.Int32> Insert(System.Int32? locationID, System.Int32? commodityID, System.String notes, System.Guid? createdBy, System.DateTime? createdOn);
+		Task<System.Int32> Insert(System.Int32? locationID, System.Int32? commodityID, System.String notes, System.Int32? createdBy, System.DateTime? createdOn);
 		Task<int> Update(TransectionSetting model);
-		Task<int> Update(System.Int32? id, System.Int32? locationID, System.Int32? commodityID, System.String notes, System.Guid? createdBy, System.DateTime? createdOn);
+		Task<int> Update(System.Int32? id, System.Int32? locationID, System.Int32? commodityID, System.String notes, System.Int32? createdBy, System.DateTime? createdOn);
 	}
 }
 
