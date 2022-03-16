@@ -1,0 +1,88 @@
+﻿@model MMS.web.Areas.Admin.ViewModels.Input.RepresentativeModel
+
+@{
+    ViewData["Title"] = "Representative";
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row" style="margin-left:25%">
+                <div class="col-md-7">
+
+                    <!-- Profile Image -->
+                    <div class="card card-primary card-outline">
+                        <div class="card-body box-profile">
+                            <div class="text-center">
+                                <img class="profile-user-img img-fluid img-circle" src="@Model.ImageURL" alt="User profile picture">
+                            </div>
+                            <p><h3 class="text-green">@ViewBag.Message</h3></p>
+                            <hr />
+                            <strong><i class="fas fa-user mr-1"></i> Name</strong>
+
+                            <p class="text-muted">@Model.Name</p>
+
+                            <hr>
+
+                            <strong><i class="fas fa-mail-bulk mr-1"></i> Email</strong>
+
+                            <p class="text-muted">@Model.Email</p>
+
+                            <hr>
+
+                            <strong><i class="fas fa-phone-alt mr-1"></i> Office Phone</strong>
+
+                            <p class="text-muted">@Model.OfficePhone</p>
+
+                            <hr>
+
+                            <strong><i class="fas fa-mobile mr-1"></i> Cell Phone</strong>
+
+                            <p class="text-muted">@Model.CellPhone</p>
+
+                            <hr>
+
+                            <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
+
+                            <p class="text-muted">@Model.Notes</p>
+
+                            <hr>
+                            <strong><i class="far fa-file mr-1"></i> Message</strong>
+
+                            @using (Html.BeginForm("index", "representative", FormMethod.Post, new { area = "tool", @enctype = "multipart/form-data" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                @Html.ValidationSummary(true)
+
+                                @Html.HiddenFor(c => c.Name)
+                                @Html.HiddenFor(c => c.Email)
+
+                                @Html.TextAreaFor(c => c.Message, new { @class = "form-control", @style = "height:200px;" })
+                                @Html.ValidationMessageFor(c => c.Message, "", new { @class = "text-danger" })
+
+                                <br />
+
+                                <button type="submit" style="margin-left:40%" class="btn btn-primary ">Submit</button>
+                            }
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->

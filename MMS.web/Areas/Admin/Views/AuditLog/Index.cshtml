@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewData["Title"] = "Audit Logs";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>@ViewData["Title"]</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">@ViewData["Title"]</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">@ViewData["Title"] List</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="myTable" class="table table-bordered table-striped table-hover nowrap" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Session Id</th>
+                                    <th>IP Address</th>
+                                    <th>Controller Name</th>
+                                    <th>Action Name</th>
+                                    <th>Area</th>
+                                    <th>LoggedIn At</th>
+                                    <th>LoggedOut At</th>
+                                    <th>Url Referrer</th>
+                                    <th>Page Accessed</th>
+                                    <th>Created On</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+
+<script>
+        $(document).ready(function () {
+            $("#myTable").DataTable({
+                "order": [[9, "desc"]],
+                "scrollX": true,
+                "ajax": {
+                    "url": "@Url.Content("~/admin/auditlog/getAuditLogs")",
+                    "type": "POST",
+                    "datatype": "json"
+                },
+                "columns":
+                    [
+                        { "data": "sessionId", "name": "sessionId", "title": "Session Id" },
+                        { "data": "ipAddress", "name": "ipAddress", "title": "IP Address" },
+                        { "data": "controllerName", "name": "ControllerName", "title": "Controller Name" },
+                        { "data": "actionName", "name": "actionName", "title": "Action Name" },
+                        { "data": "area", "name": "Area", "title": "Area Name" },
+                        { "data": "loggedInAt", "name": "loggedInAt", "title": "LoggedIn At" },
+                        { "data": "loggedOutAt", "name": "LoggedOutAt", "title": "LoggedOut At" },
+                        { "data": "urlReferrer", "name": "UrlReferrer", "title": "Url Refer" },
+                        { "data": "pageAccessed", "name": "PageAccessed", "title": "Page Accessed" },
+                        { "data": "createdOn", "name": "CreatedOn", "title": "Created On" },
+                    ]
+            });
+        });
+
+    function showResult(o) {
+        if (o.status) {
+            oTable = $('#myTable').DataTable();
+            oTable.draw();
+        } else {
+            callAlert(o.message);
+        }
+    }
+
+</script>
+
+@section Scripts {
+    @await Html.PartialAsync("_DataGridScriptsPartial")
+}

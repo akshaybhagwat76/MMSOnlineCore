@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MMS.web", "MMS.web\MMS.web.csproj", "{9A9CDB66-17C2-4ED5-8506-7FD6261B9B73}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MMS.data", "MMS.data\MMS.data.csproj", "{ACAF35BD-0FBC-44B6-9DFD-5ED7782DF530}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9A9CDB66-17C2-4ED5-8506-7FD6261B9B73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A9CDB66-17C2-4ED5-8506-7FD6261B9B73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A9CDB66-17C2-4ED5-8506-7FD6261B9B73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A9CDB66-17C2-4ED5-8506-7FD6261B9B73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACAF35BD-0FBC-44B6-9DFD-5ED7782DF530}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACAF35BD-0FBC-44B6-9DFD-5ED7782DF530}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACAF35BD-0FBC-44B6-9DFD-5ED7782DF530}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACAF35BD-0FBC-44B6-9DFD-5ED7782DF530}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {533DE917-1A06-45E4-87D0-4A376C45FE76}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 1
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://dev.azure.com/nepturetech
+		SccLocalPath0 = .
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {533DE917-1A06-45E4-87D0-4A376C45FE76}
+	EndGlobalSection
+EndGlobal

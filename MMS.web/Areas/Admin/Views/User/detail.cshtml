@@ -1,0 +1,122 @@
+﻿@model MMS.web.Areas.Admin.ViewModels.Input.UserModel
+
+@{
+    ViewData["Title"] = "User Detail";
+}
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+        <h6 class="m-0 font-weight-bold text-primary">@ViewData["Title"] </h6>
+        <div class="dropdown no-arrow">
+            <a class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" href="@Url.Content("~/admin/user")">
+                <i class="fas fa-arrow-left text-white-50"></i> Back
+            </a>
+        </div>
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm("detail", "User", FormMethod.Post, new { area = "tool", @enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            @Html.HiddenFor(c => c.userid)
+            @Html.HiddenFor(c => c.isEdit)
+
+        <div class="row">
+            <div class="col-sm-7">
+                <div class="form-group">
+                    <label for="Type" class="form-label">
+                        Full Name
+                    </label>
+                    @Html.TextBoxFor(c => c.FirstName, new { @class = "form-control", @maxlength = "50" })
+                    * @Html.ValidationMessageFor(c => c.FirstName, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <label for="Type" class="form-label">
+                        Phone
+                    </label>
+                    @Html.TextBoxFor(c => c.Phone, new { @class = "form-control", @maxlength = "15" })
+                    * @Html.ValidationMessageFor(c => c.Phone, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group form-float">
+                    <div class="form-line">
+                        <label for="IsActive" class="form-label">Status</label>
+                        @Html.DropDownListFor(c => c.isActive, new List<SelectListItem>
+                                       {new SelectListItem{ Text="--- Select Status ---", Value = ""}, new SelectListItem{ Text="Active", Value = "true" },new SelectListItem{ Text="Inactive", Value = "false" }
+                                       }, new { @class = "form-control" })
+                        *@Html.ValidationMessageFor(c => c.isActive, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group form-float">
+                    <div class="form-line">
+                        <label for="IsActive" class="form-label">Email Status</label>
+                        @Html.DropDownListFor(c => c.isEmailVerified, new List<SelectListItem>
+                                {new SelectListItem{ Text="--- Select Email Status ---", Value = ""},new SelectListItem{ Text="Verified", Value = "true" },new SelectListItem{ Text="Unverified", Value = "false" }
+                                }, new { @class = "form-control" })
+                        *@Html.ValidationMessageFor(c => c.isActive, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group form-float">
+                    <div class="form-line">
+                        <label for="UploadLogo" class="form-label">User Image</label>
+                        <input asp-for="UploadLogo" type="file" class="form-control" style="height:auto" accept="image/*" />
+                        <span asp-validation-for="UploadLogo" class="text-danger"></span>
+                        <div class="clearfix"></div>
+                        <div>
+                            @if (!string.IsNullOrEmpty(Model.Imagname))
+                            {
+                                <img src="@Model.Imagname" style="width:100px;" />
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="form-group">
+                    <label for="StrategyName" class="form-label">
+                        Email Address <small>(username)</small>
+                    </label>
+                    @if (Model.userid == null)
+                    {
+                        @Html.TextBoxFor(c => c.Email, new { @class = "form-control", @maxlength = "50" })
+                    }
+                    else
+                    {
+                        @Html.TextBoxFor(c => c.Email, new { @class = "form-control", @readonly = "true", style = "cursor: not-allowed;" })
+                    }
+                    *@Html.ValidationMessageFor(c => c.Email, "", new { @class = "text-danger" })
+                </div>
+            
+                <div class="form-group">
+                    <label for="Type" class="form-label">
+                        Password
+                    </label>
+                    @if (Model.userid == null)
+                    {
+                        @Html.TextBoxFor(c => c.Password, new { @class = "form-control", @maxlength = "250" })
+                    }
+                    else
+                    {
+                        @Html.TextBoxFor(c => c.Password, new { @class = "form-control", @readonly = "true", style = "cursor:not-allowed;",  @maxlength = "250" })
+                    }
+                    *@Html.ValidationMessageFor(c => c.Password, "", new { @class = "text-danger" })
+                </div>
+              
+
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-icon-split btn-lg">
+                    <span class="icon text-white-50"><i class="fas fa-save"></i></span>
+                    <span class="text">Submit</span>
+                </button>
+            </div>
+        </div>
+        }
+    </div>
+
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

@@ -1,0 +1,56 @@
+﻿<!-- JQuery DataTable Css -->
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<script src="https://gyrocode.github.io/jquery-datatables-checkboxes/1.1.0/js/dataTables.checkboxes.min.js"></script>
+<script type="text/javascript" src="~/lib/jquery.tmpl.js"></script>
+
+<script type="text/javascript">
+    $.extend(true, $.fn.dataTable.defaults, {
+        bLengthChange: false,
+        processing: true,
+        serverSide: true,
+        filter: true,
+        orderMulti: false,
+        language: {
+            loadingRecords: '&nbsp;',
+            processing: '<div class="loading"></div>',
+            emptyTable: "There is no records."
+        },
+        stateSave: true
+    });
+    function genrateaction(key, controller, _edit, _delete) {
+        var iactionedit = "detail";
+        var iactiondelete = "delete";
+        if (_edit !== undefined) {
+            iactionedit = _edit;
+        }
+        if (_delete !== undefined) {
+            iactiondelete = _delete;
+        }
+
+        return '<div class="btn-action">' +
+            '<a title="Edit Row" href="@Url.Content("~/admin/")' + controller + '/' + iactionedit + '/' + key + '" class="btn btn-primary waves-effect waves-block pull-left"><i class="material-icons left">edit</i></a> &nbsp;&nbsp;' +
+            '<form id="frm_' + key + '" class="fromDelete " action="@Url.Content("~/admin/")' + controller + '/' + iactiondelete + '/' + key + '"><button title="Delete Row" class="btn btn-danger"> <i class="material-icons">delete</i></button></form>' +
+            '</div>';
+    }
+
+    function callAlert(message) {
+        var main = $("<div />").addClass("alert alert-dismissable alert-warning");
+        main.append('<button type="button" class="close" data-dismiss="alert">×</button>');
+        main.append('<h4>Warning!</h4>');
+        main.append('<p>' + message + '</p>');
+        $(".errorMain").prepend(main);
+    }
+</script>
+
+<script id="edit-delete" type="text/html">
+    <div>
+        <div class="btn-action">
+            <a title="Edit Row" href="@Url.Content("~/admin/")${controller}/detail/${key}" class="btn btn-primary  btn-circle btn-sm pull-left">
+                <i class="fas fa-edit"></i>
+            </a> &nbsp;&nbsp;<form style="margin-left:38px;margin-top:-31px;" id="frm_${key}" class="fromDelete " action="@Url.Content("~/admin/")${controller}/delete/${key}">
+                <button title="Delete Row" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></button>
+            </form>
+        </div>
+    </div>
+</script>

@@ -1,0 +1,2160 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MMS.web</name>
+    </assembly>
+    <members>
+        <member name="T:MMS.web.Areas.Admin.Controllers.AuditLogController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Areas.Admin.Controllers.AuditLogController.#ctor(MMS.data.UnitOfWork.IUnitOfWork)">
+            <summary>
+            
+            </summary>
+            <param name="uowProvider"></param>
+        </member>
+        <member name="M:MMS.web.Areas.Admin.Controllers.AuditLogController.Index">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MMS.web.Areas.Admin.Controllers.AuditLogController.getAuditLogs">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MMS.web.Areas.Admin.Controllers.BaseController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MMS.web.Areas.Admin.Controllers.BaseController.UserID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MMS.web.Areas.Admin.Controllers.BaseController.AccountId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:MMS.web.Areas.Admin.Controllers.BaseController.IncludeTransportation">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Areas.Admin.Controllers.BaseController.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:MMS.web.Areas.Admin.Controllers.HomeController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Areas.Admin.Controllers.HomeController.#ctor(MMS.data.UnitOfWork.IUnitOfWork)">
+            <summary>
+            
+            </summary>
+            <param name="uowProvider"></param>
+        </member>
+        <member name="M:MMS.web.Areas.Admin.Controllers.HomeController.Index">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MMS.web.Areas.Admin.Controllers.HomeController.getTransections">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MMS.web.Areas.Admin.Controllers.RepresentativeController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Areas.Admin.Controllers.RepresentativeController.#ctor(MMS.data.UnitOfWork.IUnitOfWork,MMS.web.Services.IEmailSender)">
+            <summary>
+            
+            </summary>
+            <param name="uowProvider"></param>
+            <param name="emailSender"></param>
+        </member>
+        <member name="M:MMS.web.Areas.Admin.Controllers.RepresentativeController.Index(System.String)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MMS.web.Areas.Admin.Controllers.RepresentativeController.Index(MMS.web.Areas.Admin.ViewModels.Input.RepresentativeModel)">
+            <summary>
+            
+            </summary>
+            <param name="m"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MMS.web.Areas.Admin.Controllers.RolesController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Areas.Admin.Controllers.RolesController.#ctor(MMS.web.Services.IControllerDiscovery,Microsoft.AspNetCore.Identity.RoleManager{MMS.web.Models.ApplicationRole})">
+            <summary>
+            
+            </summary>
+            <param name="mvcControllerDiscovery"></param>
+            <param name="roleManager"></param>
+        </member>
+        <member name="M:MMS.web.Areas.Admin.Controllers.RolesController.Index">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MMS.web.Areas.Admin.Controllers.RolesController.Create">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MMS.web.Areas.Admin.Controllers.RolesController.Create(MMS.web.Areas.Admin.ViewModels.Input.RoleViewModel)">
+            <summary>
+            
+            </summary>
+            <param name="viewModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MMS.web.Areas.Admin.Controllers.RolesController.Edit(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MMS.web.Areas.Admin.Controllers.RolesController.Edit(System.String,MMS.web.Areas.Admin.ViewModels.Input.RoleViewModel)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="viewModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MMS.web.Areas.Admin.Controllers.RolesController.Delete(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MMS.web.Areas.Admin.Controllers.TransectionController">
+            <summary>
+            
+            </summary>
+            
+        </member>
+        <member name="M:MMS.web.Areas.Admin.Controllers.TransectionController.#ctor(MMS.data.UnitOfWork.IUnitOfWork)">
+            <summary>
+            
+            </summary>
+            <param name="uowProvider"></param>
+        </member>
+        <member name="M:MMS.web.Areas.Admin.Controllers.TransectionController.detail(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="ticketNo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MMS.web.Areas.Admin.Controllers.TransportationController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Areas.Admin.Controllers.TransportationController.#ctor(MMS.data.UnitOfWork.IUnitOfWork)">
+            <summary>
+            
+            </summary>
+            <param name="uowProvider"></param>
+        </member>
+        <member name="M:MMS.web.Areas.Admin.Controllers.TransportationController.detail(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MMS.web.Areas.Admin.Controllers.TransportationController.detail(MMS.web.Areas.Admin.ViewModels.Input.TransportationModel)">
+            <summary>
+            
+            </summary>
+            <param name="m"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MMS.web.Areas.Admin.Controllers.UserController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Areas.Admin.Controllers.UserController.#ctor(MMS.data.UnitOfWork.IUnitOfWork,Microsoft.AspNetCore.Identity.UserManager{MMS.web.Models.ApplicationUser},Microsoft.AspNetCore.Hosting.IHostingEnvironment,Microsoft.Extensions.Caching.Memory.IMemoryCache)">
+            <summary>
+            
+            </summary>
+            <param name="uowProvider"></param>
+            <param name="userManager"></param>
+            <param name="appEnvironment"></param>
+            <param name="cache"></param>
+        </member>
+        <member name="M:MMS.web.Areas.Admin.Controllers.UserController.Index">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MMS.web.Areas.Admin.Controllers.UserController.getUsers">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MMS.web.Areas.Admin.Controllers.UserController.detail(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MMS.web.Areas.Admin.Controllers.UserController.detail(MMS.web.Areas.Admin.ViewModels.Input.UserModel)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MMS.web.Areas.Admin.Controllers.UserController.delete(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MMS.web.Areas.Admin.ViewModels.Input.RepresentativeModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.RepresentativeModel.Name">
+            <summary>
+             Name (System.String )
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.RepresentativeModel.Email">
+            <summary>
+             Email (System.String )
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.RepresentativeModel.OfficePhone">
+            <summary>
+             OfficePhone (System.String )
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.RepresentativeModel.CellPhone">
+            <summary>
+             CellPhone (System.String )
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.RepresentativeModel.ImageURL">
+            <summary>
+             ImageURL (System.String )
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.RepresentativeModel.Notes">
+            <summary>
+             Notes (System.String )
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.RepresentativeModel.Message">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MMS.web.Areas.Admin.ViewModels.Input.RoleViewModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.RoleViewModel.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.RoleViewModel.RedirectUrl">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.RoleViewModel.MenuList">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.RoleViewModel.SelectedControllers">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MMS.web.Areas.Admin.ViewModels.Input.TicketModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.TicketModel.TicketNumber">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.TicketModel.OrderNumber">
+            <summary>
+             OrderNumber (System.String )
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.TicketModel.TicketDate">
+            <summary>
+             TicketDate (System.DateTime? )
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.TicketModel.PaymentTerms">
+            <summary>
+             PaymentTerms (System.String )
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.TicketModel.SupplierTicket">
+            <summary>
+             SupplierTicket (System.String )
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.TicketModel.CarrierTicket">
+            <summary>
+             CarrierTicket (System.String )
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.TicketModel.TruckDescription">
+            <summary>
+             TruckDescription (System.String )
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.TicketModel.Status">
+            <summary>
+             Status (System.String )
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.TicketModel.PaymentReceiptURL">
+            <summary>
+             PaymentReceiptURL (System.String )
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.TicketModel.TicketDetails">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.TicketModel.ScalePictures">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.TicketModel.ReceivedPaperwords">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.TicketModel.OtherPictures">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MMS.web.Areas.Admin.ViewModels.Input.TicketDetails">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.TicketDetails.ItemName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.TicketDetails.TicketNumber">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.TicketDetails.DetailID">
+            <summary>
+             DetailID (System.Int32? )
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.TicketDetails.GrossWeight">
+            <summary>
+             Gross (System.Int32? )
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.TicketDetails.TareWeight">
+            <summary>
+             Tare (System.Int32? )
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.TicketDetails.NetWeight">
+            <summary>
+             Net (System.Int32? )
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.TicketDetails.UnitCost">
+            <summary>
+             UnitCost (System.Decimal? )
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.TicketDetails.TotalCost">
+            <summary>
+             TotalCost (System.Decimal? )
+            </summary>
+        </member>
+        <member name="T:MMS.web.Areas.Admin.ViewModels.Input.ScalePictures">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.ScalePictures.ThumbnailURL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.ScalePictures.FullImageURL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MMS.web.Areas.Admin.ViewModels.Input.ReceivedPaperwords">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.ReceivedPaperwords.ThumbnailURL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.ReceivedPaperwords.FullImageURL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MMS.web.Areas.Admin.ViewModels.Input.OtherPictures">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.OtherPictures.ThumbnailURL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.OtherPictures.FullImageURL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MMS.web.Areas.Admin.ViewModels.Input.TransportationModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.TransportationModel.UserId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.TransportationModel.LocationId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.TransportationModel.CommodityId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.TransportationModel.Notes">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MMS.web.Areas.Admin.ViewModels.Input.UserModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.UserModel.userid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.UserModel.role">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.UserModel.FirstName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.UserModel.LastName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.UserModel.Address">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.UserModel.City">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.UserModel.State">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.UserModel.Phone">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.UserModel.CountryID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.UserModel.ZipCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.UserModel.UserImage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.UserModel.isActive">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.UserModel.isEmailVerified">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.UserModel.UploadLogo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.UserModel.Imagname">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.UserModel.isEdit">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.UserModel.Email">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Admin.ViewModels.Input.UserModel.Password">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MMS.web.Areas.Identity.IdentityHostingStartup">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Areas.Identity.IdentityHostingStartup.Configure(Microsoft.AspNetCore.Hosting.IWebHostBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="builder"></param>
+        </member>
+        <member name="T:MMS.web.Areas.Identity.Pages.Account.AccessDeniedModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Areas.Identity.Pages.Account.AccessDeniedModel.OnGet">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MMS.web.Areas.Identity.Pages.Account.ConfirmEmailModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Areas.Identity.Pages.Account.ConfirmEmailModel.#ctor(Microsoft.AspNetCore.Identity.UserManager{MMS.web.Models.ApplicationUser})">
+            <summary>
+            
+            </summary>
+            <param name="userManager"></param>
+        </member>
+        <member name="M:MMS.web.Areas.Identity.Pages.Account.ConfirmEmailModel.OnGetAsync(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="userId"></param>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MMS.web.Areas.Identity.Pages.Account.ForgotPasswordModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Areas.Identity.Pages.Account.ForgotPasswordModel.#ctor(Microsoft.AspNetCore.Identity.UserManager{MMS.web.Models.ApplicationUser},MMS.web.Services.IEmailSender)">
+            <summary>
+            
+            </summary>
+            <param name="userManager"></param>
+            <param name="emailSender"></param>
+        </member>
+        <member name="P:MMS.web.Areas.Identity.Pages.Account.ForgotPasswordModel.Input">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MMS.web.Areas.Identity.Pages.Account.ForgotPasswordModel.InputModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Identity.Pages.Account.ForgotPasswordModel.InputModel.Email">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Areas.Identity.Pages.Account.ForgotPasswordModel.OnPostAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MMS.web.Areas.Identity.Pages.Account.ForgotPasswordConfirmation">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Areas.Identity.Pages.Account.ForgotPasswordConfirmation.OnGet">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MMS.web.Areas.Identity.Pages.Account.LockoutModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Areas.Identity.Pages.Account.LockoutModel.OnGet">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MMS.web.Areas.Identity.Pages.Account.LoginModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Areas.Identity.Pages.Account.LoginModel.#ctor(Microsoft.AspNetCore.Identity.SignInManager{MMS.web.Models.ApplicationUser},Microsoft.Extensions.Logging.ILogger{MMS.web.Areas.Identity.Pages.Account.LoginModel},Microsoft.AspNetCore.Identity.UserManager{MMS.web.Models.ApplicationUser},Microsoft.AspNetCore.Identity.RoleManager{MMS.web.Models.ApplicationRole},MMS.data.UnitOfWork.IUnitOfWork,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            
+            </summary>
+            <param name="signInManager"></param>
+            <param name="logger"></param>
+            <param name="userManager"></param>
+            <param name="roleManager"></param>
+            <param name="uowProvider"></param>
+            <param name="httpContextAccessor"></param>
+        </member>
+        <member name="P:MMS.web.Areas.Identity.Pages.Account.LoginModel.Input">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Identity.Pages.Account.LoginModel.ExternalLogins">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Identity.Pages.Account.LoginModel.ReturnUrl">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Identity.Pages.Account.LoginModel.ErrorMessage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MMS.web.Areas.Identity.Pages.Account.LoginModel.InputModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Identity.Pages.Account.LoginModel.InputModel.Email">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Identity.Pages.Account.LoginModel.InputModel.Password">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Identity.Pages.Account.LoginModel.InputModel.RememberMe">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Areas.Identity.Pages.Account.LoginModel.OnGetAsync(System.String)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Areas.Identity.Pages.Account.LoginModel.OnPostAsync(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="returnUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MMS.web.Areas.Identity.Pages.Account.LoginModel.AuditLogin(System.Nullable{System.Guid},System.Nullable{System.Guid})">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MMS.web.Areas.Identity.Pages.Account.LogoutModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Areas.Identity.Pages.Account.LogoutModel.#ctor(Microsoft.AspNetCore.Identity.SignInManager{MMS.web.Models.ApplicationUser},Microsoft.Extensions.Logging.ILogger{MMS.web.Areas.Identity.Pages.Account.LogoutModel},MMS.data.UnitOfWork.IUnitOfWork,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            
+            </summary>
+            <param name="signInManager"></param>
+            <param name="logger"></param>
+            <param name="uowProvider"></param>
+            <param name="httpContextAccessor"></param>
+        </member>
+        <member name="M:MMS.web.Areas.Identity.Pages.Account.LogoutModel.OnGet">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Areas.Identity.Pages.Account.LogoutModel.OnPost(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="returnUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MMS.web.Areas.Identity.Pages.Account.LogoutModel.AuditLogout">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MMS.web.Areas.Identity.Pages.Account.Manage.ChangePasswordModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Areas.Identity.Pages.Account.Manage.ChangePasswordModel.#ctor(Microsoft.AspNetCore.Identity.UserManager{MMS.web.Models.ApplicationUser},Microsoft.AspNetCore.Identity.SignInManager{MMS.web.Models.ApplicationUser},Microsoft.Extensions.Logging.ILogger{MMS.web.Areas.Identity.Pages.Account.Manage.ChangePasswordModel})">
+            <summary>
+            
+            </summary>
+            <param name="userManager"></param>
+            <param name="signInManager"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="P:MMS.web.Areas.Identity.Pages.Account.Manage.ChangePasswordModel.Input">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Identity.Pages.Account.Manage.ChangePasswordModel.StatusMessage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MMS.web.Areas.Identity.Pages.Account.Manage.ChangePasswordModel.InputModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Identity.Pages.Account.Manage.ChangePasswordModel.InputModel.OldPassword">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Identity.Pages.Account.Manage.ChangePasswordModel.InputModel.NewPassword">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Identity.Pages.Account.Manage.ChangePasswordModel.InputModel.ConfirmPassword">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Areas.Identity.Pages.Account.Manage.ChangePasswordModel.OnGetAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MMS.web.Areas.Identity.Pages.Account.Manage.ChangePasswordModel.OnPostAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MMS.web.Areas.Identity.Pages.Account.ResetPasswordModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Areas.Identity.Pages.Account.ResetPasswordModel.#ctor(Microsoft.AspNetCore.Identity.UserManager{MMS.web.Models.ApplicationUser})">
+            <summary>
+            
+            </summary>
+            <param name="userManager"></param>
+        </member>
+        <member name="P:MMS.web.Areas.Identity.Pages.Account.ResetPasswordModel.Input">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MMS.web.Areas.Identity.Pages.Account.ResetPasswordModel.InputModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Identity.Pages.Account.ResetPasswordModel.InputModel.Email">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Identity.Pages.Account.ResetPasswordModel.InputModel.Password">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Identity.Pages.Account.ResetPasswordModel.InputModel.ConfirmPassword">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Areas.Identity.Pages.Account.ResetPasswordModel.InputModel.Code">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Areas.Identity.Pages.Account.ResetPasswordModel.OnGet(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="userId"></param>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MMS.web.Areas.Identity.Pages.Account.ResetPasswordModel.OnPostAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MMS.web.Areas.Identity.Pages.Account.ResetPasswordConfirmationModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Areas.Identity.Pages.Account.ResetPasswordConfirmationModel.OnGet">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MMS.web.Config.AppConfig">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Config.AppConfig.ApplicationName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Config.AppConfig.ApplicationUrl">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Config.AppConfig.Version">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Config.AppConfig.AdminEmail">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MMS.web.Config.EmailConfig">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Config.EmailConfig.FromName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Config.EmailConfig.FromAddress">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Config.EmailConfig.MailServerAddress">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Config.EmailConfig.MailServerPort">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Config.EmailConfig.UserId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Config.EmailConfig.UserPassword">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MMS.web.Controllers.CKEditorController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Controllers.CKEditorController.#ctor(Microsoft.AspNetCore.Hosting.IHostingEnvironment,Microsoft.Extensions.Options.IOptions{MMS.web.Config.AppConfig})">
+            <summary>
+            
+            </summary>
+            <param name="appEnvironment"></param>
+            <param name="_config"></param>
+        </member>
+        <member name="M:MMS.web.Controllers.CKEditorController.Index">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MMS.web.Controllers.CKEditorController.uploadnow(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            
+            </summary>
+            <param name="upload"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MMS.web.Controllers.CKEditorController.uploadPartial">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MMS.web.Controllers.GeneralController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Controllers.GeneralController.#ctor(MMS.data.UnitOfWork.IUnitOfWork)">
+            <summary>
+            
+            </summary>
+            <param name="uowProvider"></param>
+        </member>
+        <member name="M:MMS.web.Controllers.GeneralController.getAllLocationsList(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="v"></param>
+            <param name="title"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MMS.web.Controllers.GeneralController.getAllCommodityList(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="v"></param>
+            <param name="title"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MMS.web.Controllers.HomeController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Controllers.HomeController.#ctor(MMS.data.UnitOfWork.IUnitOfWork)">
+            <summary>
+            
+            </summary>
+            <param name="uowProvider"></param>
+        </member>
+        <member name="M:MMS.web.Controllers.HomeController.Index">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MMS.web.Controllers.HomeController.Error">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MMS.web.Controllers.HomeController.About">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MMS.web.Controllers.HomeController.login">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MMS.web.Controllers.HomeController.logout">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MMS.web.Controllers.HomeController.login(MMS.web.Models.LoginModels)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MMS.web.Controllers.HomeController.Contact">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MMS.web.Controllers.HomeController.Privacy">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MMS.web.Data.ApplicationDbContext">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Data.ApplicationDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{MMS.web.Data.ApplicationDbContext})">
+            <summary>
+            
+            </summary>
+            <param name="options"></param>
+        </member>
+        <member name="T:MMS.web.Extensions.AppClaimsPrincipalFactory">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Extensions.AppClaimsPrincipalFactory.#ctor(MMS.data.UnitOfWork.IUnitOfWork,Microsoft.AspNetCore.Identity.UserManager{MMS.web.Models.ApplicationUser},Microsoft.AspNetCore.Identity.RoleManager{MMS.web.Models.ApplicationRole},Microsoft.Extensions.Options.IOptions{Microsoft.AspNetCore.Identity.IdentityOptions},Microsoft.Extensions.Options.IOptions{MMS.web.Config.AppConfig})">
+            <summary>
+            
+            </summary>
+            <param name="uowProvider"></param>
+            <param name="userManager"></param>
+            <param name="roleManager"></param>
+            <param name="optionsAccessor"></param>
+            <param name="appconfig"></param>
+        </member>
+        <member name="M:MMS.web.Extensions.AppClaimsPrincipalFactory.CreateAsync(MMS.web.Models.ApplicationUser)">
+            <summary>
+            
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MMS.web.Extensions.EmailSenderExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Extensions.EmailSenderExtensions.SendEmailConfirmationAsync(MMS.web.Services.IEmailSender,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="emailSender"></param>
+            <param name="email"></param>
+            <param name="link"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MMS.web.Extensions.Encryption">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Extensions.Encryption.Encrypt(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MMS.web.Extensions.Encryption.Decrypt(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="tempValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MMS.web.Extensions.Encryption.ByteArrayToString(System.Byte[])">
+            <summary>
+            
+            </summary>
+            <param name="arrInput"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MMS.web.Extensions.AllSessionKey">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Extensions.AllSessionKey.UserId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Extensions.AllSessionKey.UserName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Extensions.AllSessionKey.IsFirstLogin">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Extensions.AllSessionKey.RoleId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Extensions.AllSessionKey.LangId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MMS.web.Extensions.Uploadfiles">
+            <summary>
+            Upload Images
+            </summary>
+        </member>
+        <member name="M:MMS.web.Extensions.Uploadfiles.Uplaod(Microsoft.AspNetCore.Http.IFormFile,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="UploadLogo"></param>
+            <param name="WebRootPath"></param>
+            <param name="folder"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MMS.web.Extensions.Uploadfiles.UplaodVideo(Microsoft.AspNetCore.Http.IFormFile,System.String,System.String)">
+            <summary>
+            Upload
+            </summary>
+            <param name="UploadLogo"></param>
+            <param name="WebRootPath"></param>
+            <param name="folder"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MMS.web.ValidationError">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.ValidationError.Field">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.ValidationError.Message">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.ValidationError.#ctor(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="field"></param>
+            <param name="message"></param>
+        </member>
+        <member name="T:MMS.web.ValidationResultModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.ValidationResultModel.Message">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.ValidationResultModel.errorCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.ValidationResultModel.status">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.ValidationResultModel.Errors">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.ValidationResultModel.#ctor(Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MMS.web.ValidationFailedResult">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.ValidationFailedResult.#ctor(Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary)">
+            <summary>
+            
+            </summary>
+            <param name="modelState"></param>
+        </member>
+        <member name="T:MMS.web.ValidateModelStateAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.ValidateModelStateAttribute.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:MMS.web.Filters.AuditFilterAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Filters.AuditFilterAttribute.#ctor(Microsoft.AspNetCore.Http.IHttpContextAccessor,MMS.data.UnitOfWork.IUnitOfWork)">
+            <summary>
+            
+            </summary>
+            <param name="httpContextAccessor"></param>
+            <param name="uowProvider"></param>
+        </member>
+        <member name="M:MMS.web.Filters.AuditFilterAttribute.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            
+            </summary>
+            <param name="filterContext"></param>
+        </member>
+        <member name="T:MMS.web.Models.ApplicationRole">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.ApplicationRole.Description">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.ApplicationRole.Permission">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.ApplicationRole.RedirectUrl">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MMS.web.Models.ApplicationUser">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.ApplicationUser.FirstName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.ApplicationUser.LastName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.ApplicationUser.IsActive">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.ApplicationUser.IsDeleted">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.ApplicationUser.AccountId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MMS.web.Models.AuditModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.AuditModel.AuditId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.AuditModel.Area">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.AuditModel.ControllerName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.AuditModel.ActionName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.AuditModel.RoleId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.AuditModel.LangId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.AuditModel.IpAddress">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.AuditModel.IsFirstLogin">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.AuditModel.LoggedInAt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.AuditModel.LoggedOutAt">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.AuditModel.LoginStatus">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.AuditModel.PageAccessed">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.AuditModel.SessionId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.AuditModel.UrlReferrer">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.AuditModel.UserId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MMS.web.Models.CmsModels">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.CmsModels.Cmsid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.CmsModels.url">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.CmsModels.title">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.CmsModels.createdOn">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.CmsModels.body">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.CmsModels.isBlog">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MMS.web.Models.ControllerInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.ControllerInfo.Id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.ControllerInfo.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.ControllerInfo.DisplayName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.ControllerInfo.AreaName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.ControllerInfo.Actions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MMS.web.Models.ActionInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.ActionInfo.Id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.ActionInfo.Name">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.ActionInfo.DisplayName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.ActionInfo.ControllerId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MMS.web.Models.ErrorViewModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.ErrorViewModel.RequestId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.ErrorViewModel.ShowRequestId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MMS.web.Models.imagesviewmodel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.imagesviewmodel.Url">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MMS.web.Models.LoginModels">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.LoginModels.Password">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.LoginModels.Email">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.LoginModels.isEdit">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MMS.web.Models.WeekDays">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.WeekDays.day">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Models.WeekDays.dayName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Models.WeekDays.GetList">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MMS.web.Program">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Program.Main(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:MMS.web.Program.CreateWebHostBuilder(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MMS.web.Services.ControllerDiscovery">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Services.ControllerDiscovery.#ctor(Microsoft.AspNetCore.Mvc.Infrastructure.IActionDescriptorCollectionProvider)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Services.ControllerDiscovery.GetControllers">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Services.ControllerDiscovery.IsProtectedAction(System.Reflection.MemberInfo,System.Reflection.MemberInfo)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:MMS.web.Services.EmailSender">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Services.EmailSender.#ctor(Microsoft.Extensions.Options.IOptions{MMS.web.Config.EmailConfig},Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            
+            </summary>
+            <param name="emailConfig"></param>
+            <param name="appEnvironment"></param>
+        </member>
+        <member name="M:MMS.web.Services.EmailSender.SendEmailAsync(System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="email"></param>
+            <param name="subject"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MMS.web.Services.EmailSender.SendActivationEmailAsync(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            
+            </summary>
+            <param name="email"></param>
+            <param name="subject"></param>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MMS.web.Services.EmailSender.SendEmailAsync(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+            <summary>
+            
+            </summary>
+            <param name="email"></param>
+            <param name="subject"></param>
+            <param name="data"></param>
+            <param name="template">html template file name</param>
+            <returns></returns>
+        </member>
+        <member name="T:MMS.web.Services.IControllerDiscovery">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Services.IControllerDiscovery.GetControllers">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MMS.web.Services.IEmailSender">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Services.IEmailSender.SendEmailAsync(System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="email"></param>
+            <param name="subject"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MMS.web.Services.IEmailSender.SendActivationEmailAsync(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            
+            </summary>
+            <param name="email"></param>
+            <param name="subject"></param>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MMS.web.Services.IEmailSender.SendEmailAsync(System.String,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+            <summary>
+            
+            </summary>
+            <param name="email"></param>
+            <param name="subject"></param>
+            <param name="data"></param>
+            <param name="template"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MMS.web.Startup">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="P:MMS.web.Startup.Configuration">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:MMS.web.Startup.StaticConfig">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MMS.web.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:MMS.web.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment,System.IServiceProvider,Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+            <param name="serviceProvider"></param>
+            <param name="loggerFactory"></param>
+        </member>
+        <member name="T:EnumDropDownHalper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:EnumDropDownHalper.ToSelectList``1(``0,System.Object)">
+            <summary>
+            
+            </summary>
+            <typeparam name="TEnum"></typeparam>
+            <param name="obj"></param>
+            <param name="selectedValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EnumDropDownHalper.DisplayName(System.Enum)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:EnumDisplayNameAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:EnumDisplayNameAttribute.DisplayName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:RequiredIfAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:RequiredIfAttribute.#ctor(System.String,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="propertyName"></param>
+            <param name="desiredvalue"></param>
+        </member>
+        <member name="M:RequiredIfAttribute.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="T:StringHelper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:StringHelper.ToTitleCase(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StringHelper.ToDecode(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StringHelper.ToSeoUrl(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="orig"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StringHelper.ToEncode(System.Decimal)">
+            <summary>
+            
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StringHelper.ToEncode(System.Nullable{System.Decimal})">
+            <summary>
+            
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StringHelper.ToEncode(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StringHelper.ToEncode(System.Nullable{System.Int32})">
+            <summary>
+            
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StringHelper.ToEncode(System.Nullable{System.Int64})">
+            <summary>
+            
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StringHelper.ToEncode(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StringHelper.FormatPrice(System.Nullable{System.Decimal})">
+            <summary>
+            
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StringHelper.ToIST(System.Nullable{System.DateTime})">
+            <summary>
+            
+            </summary>
+            <param name="utcdate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StringHelper.ToEnum``1(System.String)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StringHelper.isEmail(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StringHelper.isPhoneNumber(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StringHelper.Base64ForUrlEncode(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StringHelper.Base64ForUrlDecode(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StringHelper.UrlTokenEncode(System.Byte[])">
+            <summary>
+            
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:StringHelper.UrlTokenDecode(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DoubleHelper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DoubleHelper.ToRound(System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DoubleHelper.ToRound(System.Nullable{System.Double})">
+            <summary>
+            
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Extensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Extensions.GetAttribute``1(System.Enum)">
+            <summary>
+                A generic extension method that aids in reflecting 
+                and retrieving any attribute that is applied to an `Enum`.
+            </summary>
+        </member>
+        <member name="M:Extensions.ParseEnum``1(System.String)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Mvc.UrlHelperExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Mvc.UrlHelperExtensions.GetLocalUrl(Microsoft.AspNetCore.Mvc.IUrlHelper,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="urlHelper"></param>
+            <param name="localUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Mvc.UrlHelperExtensions.EmailConfirmationLink(Microsoft.AspNetCore.Mvc.IUrlHelper,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="urlHelper"></param>
+            <param name="userId"></param>
+            <param name="code"></param>
+            <param name="scheme"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Mvc.UrlHelperExtensions.ResetPasswordCallbackLink(Microsoft.AspNetCore.Mvc.IUrlHelper,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="urlHelper"></param>
+            <param name="userId"></param>
+            <param name="code"></param>
+            <param name="scheme"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Mvc.UrlHelperExtensions.EmailConfirmationLink(Microsoft.AspNetCore.Mvc.IUrlHelper,System.String,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="urlHelper"></param>
+            <param name="userId"></param>
+            <param name="code"></param>
+            <param name="scheme"></param>
+            <param name="BaseUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Mvc.UrlHelperExtensions.ResetPasswordCallbackLink(Microsoft.AspNetCore.Mvc.IUrlHelper,System.String,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="urlHelper"></param>
+            <param name="userId"></param>
+            <param name="code"></param>
+            <param name="scheme"></param>
+            <param name="BaseUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="T:General">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:General.AppName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:General.BuildVersion">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:General.PageSize">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:General.BlogCatID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:General.defaultPassword">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:General.GenerateToken(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="M:General.tempUsername(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="M:General.getBaseUrl(Microsoft.Extensions.Options.IOptions{MMS.web.Config.AppConfig})">
+            <summary>
+            
+            </summary>
+            <param name="config"></param>
+            <returns></returns>
+        </member>
+        <member name="M:General.GetImageUrl(System.String,Microsoft.Extensions.Options.IOptions{MMS.web.Config.AppConfig})">
+            <summary>
+            
+            </summary>
+            <param name="ImageName"></param>
+            <param name="config"></param>
+            <returns></returns>
+        </member>
+        <member name="M:General.Encode(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="encodeMe"></param>
+            <returns></returns>
+        </member>
+        <member name="M:General.Decode(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="decodeMe"></param>
+            <returns></returns>
+        </member>
+        <member name="M:General.CorrectFilename(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="filename"></param>
+            <returns></returns>
+        </member>
+        <member name="M:General.GetAge(System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="dateOfBirth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:General.GenerateName(System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="len"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:General.NotificationDateTime(System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:General.removeSpecialCharacters(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="orig"></param>
+            <returns></returns>
+        </member>
+        <member name="M:General.AddExcludingUsaAddress(System.Collections.Generic.Dictionary{System.String,System.String}@)">
+            <summary>
+            
+            </summary>
+            <param name="result"></param>
+        </member>
+        <member name="M:General.AddIncludingUsaAddress(System.Collections.Generic.Dictionary{System.String,System.String}@)">
+            <summary>
+            
+            </summary>
+            <param name="result"></param>
+        </member>
+        <member name="M:General.GetExcludingUsaAddress">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:General.GetIncludingUsaAddress">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

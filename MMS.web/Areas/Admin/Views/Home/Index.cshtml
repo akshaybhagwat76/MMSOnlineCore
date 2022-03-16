@@ -1,0 +1,91 @@
+﻿
+@{
+    ViewData["Title"] = "Transactions";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>@ViewData["Title"]</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">@ViewData["Title"]</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">@ViewData["Title"] List</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="myTable" class="table table-bordered table-striped table-hover nowrap" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Ticket No.</th>
+                                    <th>Ticket Date</th>
+                                    <th>Weight</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+</div>
+
+<script>
+        $(document).ready(function () {
+            $("#myTable").DataTable({
+                "order": [[0, "desc"]],
+                //"scrollX": true,
+                "ajax": {
+                    "url": "@Url.Content("~/admin/home/getTransections")",
+                    "type": "POST",
+                    "datatype": "json"
+                },
+                "columns":
+                    [
+                        {
+                            "name": "ticketNumber", "title": "Ticket No.",
+                             render: function (data, type, row) {
+                                 return '<a href= "/admin/transection/detail?ticketNo=' + row.ticketNumber + '">' + row.ticketNumber +'</a>';
+                            },
+                        },
+                        { "data": "ticketDate", "name": "ticketDate", "title": "Ticket Date" },
+                        { "data": "weight", "name": "weight", "title": "Weight" }
+                    ]
+            });
+        });
+
+    function showResult(o) {
+        if (o.status) {
+            oTable = $('#myTable').DataTable();
+            oTable.draw();
+        } else {
+            callAlert(o.message);
+        }
+    }
+
+</script>
+
+@section Scripts {
+    @await Html.PartialAsync("_DataGridScriptsPartial")
+}

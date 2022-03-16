@@ -1,0 +1,14 @@
+﻿@page
+@model LockoutModel
+@{
+    ViewData["Title"] = "Locked out";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+<div class="container logSign p0">
+    <div class="col-md-12 logSignForm">
+        <header>
+            <h1 class="text-danger">@ViewData["Title"]</h1>
+            <p class="text-danger">This account has been locked out, please try again later.</p>
+        </header>
+    </div>
+</div>

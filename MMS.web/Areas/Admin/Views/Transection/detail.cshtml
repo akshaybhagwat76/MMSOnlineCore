@@ -1,0 +1,192 @@
+﻿@model MMS.web.Areas.Admin.ViewModels.Input.TicketModel
+
+@{
+    ViewData["Title"] = "detail";
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Transaction Details</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Transaction Details</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                    <!-- About Me Box -->
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">About Ticket</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <strong><i class="fas fa-file-invoice mr-1"></i> Ticket No.</strong>
+
+                            <p class="text-muted">@Html.DisplayFor(c => c.TicketNumber)</p>
+
+                            <hr>
+
+                            <strong><i class="fas fa-clock mr-1"></i>Ticket Date</strong>
+
+                            <p class="text-muted"> @Html.DisplayFor(c => c.TicketDate)</p>
+
+                            <hr>
+
+                            <strong><i class="fas fa-file-contract mr-1"></i>Order Number</strong>
+
+                            <p class="text-muted"><a href="@Model.PaymentReceiptURL" target="_blank">@Model.OrderNumber</a></p>
+
+                            <hr>
+
+                            <strong><i class="fas fa-address-card mr-1"></i>Payment Terms</strong>
+
+                            <p class="text-muted"> @Html.DisplayFor(c => c.PaymentTerms)</p>
+
+                            <hr>
+
+                            <strong><i class="fas fa-file-invoice-dollar mr-1"></i>Supplier Ticket No.</strong>
+
+                            <p class="text-muted"> @Html.DisplayFor(c => c.SupplierTicket)</p>
+
+                            <hr>
+
+                            <strong><i class="fas fa-truck mr-1"></i>Truck Description</strong>
+
+                            <p class="text-muted"> @Html.DisplayFor(c => c.TruckDescription)</p>
+
+                            <hr>
+
+                            <strong><i class="fas fa-cogs mr-1"></i>Status</strong>
+
+                            <p class="text-muted"> @Html.DisplayFor(c => c.Status)</p>
+
+                            <hr>
+
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-9">
+                    <div class="card">
+                        <div class="card-header p-2">
+                            <ul class="nav nav-pills">
+                                <li class="nav-item" @(Model.TicketDetails.Any() ? "style=display:block" : "style=display:none")><a class="nav-link active" href="#TicketDetails" data-toggle="tab">Ticket Details</a></li>
+                                <li class="nav-item" @(Model.ScalePictures.Any() ? "style=display:block" : "style=display:none")><a class="nav-link" href="#ScalePictures" data-toggle="tab">Scale Pictures</a></li>
+                                <li class="nav-item" @(Model.ReceivedPaperwords.Any() ? "style=display:block" : "style=display:none")><a class="nav-link" href="#ReceivedPaperwords" data-toggle="tab">Received Paperwords</a></li>
+                                <li class="nav-item" @(Model.OtherPictures.Any() ? "style=display:block" : "style=display:none")><a class="nav-link" href="#OtherPictures" data-toggle="tab">Other Pictures</a></li>
+                            </ul>
+                        </div><!-- /.card-header -->
+                        <div class="card-body">
+                            <div class="tab-content">
+                                <div class="active tab-pane" id="TicketDetails">
+                                    <table id="myTable" class="table table-bordered table-striped table-hover nowrap" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>Item Name</th>
+                                                <th>Net Weight</th>
+                                                <th>Tare Weight</th>
+                                                <th>Gross Weight</th>
+                                                <th>Unit Cost</th>
+                                                <th>Total Cost</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if (Model.TicketDetails.Any())
+                                            {
+                                                foreach (var item in Model.TicketDetails)
+                                                {
+                                                    <tr>
+                                                        <td>@item.ItemName</td>
+                                                        <td>@item.NetWeight</td>
+                                                        <td>@item.TareWeight</td>
+                                                        <td>@item.GrossWeight</td>
+                                                        <td>@item.UnitCost</td>
+                                                        <td>@item.TotalCost</td>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.tab-pane -->
+                                <div class="tab-pane" id="ScalePictures">
+                                    <!-- The timeline -->
+                                    <table id="myTable2" class="table" width="100%" border="0" cellspacing="0">
+                                        <tbody>
+                                            @if (Model.ScalePictures.Any())
+                                            {
+                                                foreach (var item in Model.ScalePictures)
+                                                {
+                                                    <tr>
+                                                        <td style="text-align: center;"><img width="400" src="@item.ThumbnailURL" onclick="javascript:window.open('@item.FullImageURL');" alt="@item.FullImageURL" /></td>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.tab-pane -->
+
+                                <div class="tab-pane" id="ReceivedPaperwords">
+                                    <table id="myTable4" class="table" width="100%" border="0" cellspacing="0">
+                                        <tbody>
+                                            @if (Model.ReceivedPaperwords.Any())
+                                            {
+                                                foreach (var item in Model.ReceivedPaperwords)
+                                                {
+                                                    <tr>
+                                                        <td style="text-align: center;"><img width="400" src="@item.ThumbnailURL" onclick="javascript:window.open('@item.FullImageURL');" alt="@item.FullImageURL" /></td>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="tab-pane" id="OtherPictures">
+                                    <table id="myTable5" class="table" width="100%" border="0" cellspacing="0">
+                                        <tbody>
+                                            @if (Model.OtherPictures.Any())
+                                            {
+                                                foreach (var item in Model.OtherPictures)
+                                                {
+                                                    <tr>
+                                                        <td style="text-align: center;"><img width="400" src="@item.ThumbnailURL" onclick="javascript:window.open('@item.FullImageURL');" alt="@item.FullImageURL" /></td>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.tab-pane -->
+                            </div>
+                            <!-- /.tab-content -->
+                        </div><!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->

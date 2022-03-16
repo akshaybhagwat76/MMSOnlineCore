@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>@ViewData["Title"] | MetalX Online</title>
+    <!-- Font Awesome Icons -->
+    <link href="@Url.Content("~/lib/plugins/fontawesome-free/css/all.min.css")" rel="stylesheet" />
+    <!-- overlayScrollbars -->
+    <link href="@Url.Content("~/lib/plugins/overlayScrollbars/css/OverlayScrollbars.min.css")" rel="stylesheet" />
+    <!-- Theme style -->
+    <link href="@Url.Content("~/lib/dist/css/adminlte.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/lib/dist/css/custom-style.css")" rel="stylesheet" />
+    <!-- Theme style -->
+    <link href="@Url.Content("~/lib/bootstrap/dist/css/bootstrap-datepicker3.css")" rel="stylesheet" />
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link href="@Url.Content("~/lib/bootstrap-multiselect/bootstrap-multiselect.css")" asp-append-version="true" rel="stylesheet" />
+  
+    <link href="@Url.Content("~/lib/toolkit.css")" asp-append-version="true" rel="stylesheet" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+    <div class="wrapper">
+        @await Html.PartialAsync("_header")
+
+        @await Html.PartialAsync("_navbar")
+
+        @RenderBody()
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+        <!-- Main Footer -->
+        <footer class="main-footer">
+            <strong>Copyright &copy; @DateTime.Now.Year <a href="#"></a></strong>
+            All rights reserved.
+            <div class="float-right d-none d-sm-inline-block">
+                <b>Version</b> 1.0.0
+                @*| <b>Powered by</b> <a href="http://nepturetech.com/" target="_blank">Nepture Tech</a>*@
+            </div>
+        </footer>
+    </div>
+    <!-- ./wrapper -->
+    <!-- REQUIRED SCRIPTS -->
+    <!-- Bootstrap -->
+    <script src="@Url.Content("~/lib/plugins/bootstrap/js/bootstrap.bundle.min.js")"></script>
+    <!-- overlayScrollbars -->
+    <script src="@Url.Content("~/lib/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js")"></script>
+    <!-- AdminLTE App -->
+    <script src="@Url.Content("~/lib/dist/js/adminlte.js")"></script>
+
+    <!-- OPTIONAL SCRIPTS -->
+    <script src="@Url.Content("~/lib/dist/js/demo.js")"></script>
+
+    <!-- PAGE PLUGINS -->
+    <!-- jQuery Mapael -->
+    <script src="@Url.Content("~/lib/plugins/jquery-mousewheel/jquery.mousewheel.js")"></script>
+    <script src="@Url.Content("~/lib/plugins/raphael/raphael.min.js")"></script>
+    <script src="@Url.Content("~/lib/plugins/jquery-mapael/jquery.mapael.min.js")"></script>
+    <script src="@Url.Content("~/lib/plugins/jquery-mapael/maps/usa_states.min.js")"></script>
+    <!-- ChartJS -->
+    <script src="@Url.Content("~/lib/plugins/chart.js/Chart.min.js")"></script>
+    <!-- ChartJS -->
+    <script src="@Url.Content("~/lib/bootstrap/dist/js/bootstrap-datepicker.js")"></script>
+    <script src="@Url.Content("~/lib/bootstrap-multiselect/bootstrap-multiselect.js")" asp-append-version="true"></script>
+    <script src="@Url.Content("~/lib/Toolkit.min.js")" asp-append-version="true"></script>
+    <!-- PAGE SCRIPTS -->
+    @*<script src="@Url.Content("~/lib/dist/js/pages/dashboard2.js")"></script>*@
+
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+
+    @RenderSection("Scripts", required: false)
+
+
+</body>
+</html> -

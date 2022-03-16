@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewData["Title"] = "Users";
+}
+<div class="container-fluid">
+
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">@ViewData["Title"]</h1>
+        <a href="@Url.Content("~/admin/user/detail")" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+            <i class="fas fa-plus fa-sm text-white-50"></i> New User
+        </a>
+    </div>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Users List</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                @(Html.ToolKit().Form().FormClass("fromDelete").Success("showResult").Confirm(true))
+                <table id="myTable" class="table table-bordered table-striped table-hover nowrap" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>User Name</th>
+                            <th>Email</th>
+                            <th>PhoneNumber</th>
+                            <th data-orderable="false">Status</th>
+                            <th data-orderable="false">EmailOK</th>
+                            <th width="75" data-orderable="false">Action</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+        $(document).ready(function () {
+            $("#myTable").DataTable({
+                "order": [[0, "desc"]],
+                "ajax": {
+                    "url": "@Url.Content("~/admin/user/getUsers")",
+                    "type": "POST",
+                    "datatype": "json"
+                },
+                "columns":
+                    [
+                        { "data": "firstName", "name": "FirstName", "title": "UserName", "autoWidth": true },
+                        { "data": "email", "name": "Email", "title": "Email" },
+                        { "data": "phoneNumber", "name": "PhoneNumber", "title": "Phone" },
+                        { "data": "isActive", "name": "IsActive", "title": "Status" },
+                        { "data": "emailConfirmed", "name": "EmailOK", "title": "EmailOK" },
+                        {
+                            data: null, render: function (data, type, row) {
+                                row.controller = "user";
+                                return $('#edit-delete').tmpl(row).html();
+                            },
+                            autoWidth: false
+                        }
+                    ]
+            });
+        });
+
+    function showResult(o) {
+        if (o.status) {
+            oTable = $('#myTable').DataTable();
+            oTable.draw();
+        } else {
+            callAlert(o.message);
+        }
+    }
+
+</script>
+
+@section Scripts {
+    @await Html.PartialAsync("_DataGridScriptsPartial")
+}

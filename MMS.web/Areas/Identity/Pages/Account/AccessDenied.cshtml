@@ -1,0 +1,15 @@
+﻿@page
+@model AccessDeniedModel
+@{
+    ViewData["Title"] = "Access denied";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<div class="container logSign p0">
+    <div class="col-md-12 logSignForm">
+        <h2 class="text-center">@ViewData["Title"]</h2>
+        <div style="text-align:center;padding-top:30px;">
+            <p class="text-danger">You do not have access to this resource.</p>
+        </div>
+    </div>
+</div>

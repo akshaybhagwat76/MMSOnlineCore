@@ -1,0 +1,216 @@
+﻿@using MMS.web.Areas.Admin.ViewModels.Input
+@model RoleViewModel
+@{
+    ViewData["Title"] = "Edit Role";
+    var controllers = (IEnumerable<MMS.web.Models.ControllerInfo>)ViewData["Controllers"];
+    var menuLsit = (List<String>)ViewData["menuList"];
+}
+@section Header {
+    <link href="~/lib/jquery-bonsai/jquery.bonsai.css" rel="stylesheet" />
+}
+<div class="container-fluid errorMain">
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h2>
+                        @ViewData["Title"]
+                    </h2>
+                    <div class="header-button m-r--5">
+                        <a asp-action="Index" class="btn btn-primary m-t-15 waves-effect">Back to List</a>
+                    </div>
+                </div>
+                <div class="body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <form asp-action="Edit" class="form-horizontal">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div class="form-group">
+                                    <label asp-for="Name" class="control-label col-md-4"></label>
+                                    <div class="col-md-8">
+                                        <input asp-for="Name" class="form-control" />
+                                        <span asp-validation-for="Name" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="RedirectUrl" class="control-label col-md-4"></label>
+                                    <div class="col-md-8">
+                                        <input asp-for="RedirectUrl" class="form-control" />
+                                        <span asp-validation-for="RedirectUrl" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Menu List</label>
+                                    <div class="col-md-9">
+                                        <ol id="tree2">
+                                            @foreach (var c in menuLsit)
+                                            {
+                                                var selectedmenu = Model?.MenuList?.SingleOrDefault(d => d == c);
+
+                                                <li class="menulist" data-value="@c"
+                                                    @if (selectedmenu != null) { <text> data-checked='1' </text> }>
+                                                    @c
+                                                </li>
+                                            }
+                                        </ol>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Access List</label>
+                                    <div class="col-md-9">
+
+                                        @foreach (var controllerss in controllers.GroupBy(c => c.AreaName))
+                                        {
+                                            var AreaName = controllerss.FirstOrDefault().AreaName;
+                                            <h4 class="title"> @(string.IsNullOrWhiteSpace(AreaName) ? "Home Page" : AreaName) </h4>
+                                            <div class="treebonsai">
+                                                <ol class="tree">
+
+                                                    @foreach (var controller in controllerss)
+                                                    {
+
+                                                        var selectedController = Model?.SelectedControllers?.SingleOrDefault(c => c.Id == controller.Id);
+                                                        string name;
+                                                        {
+                                                            name = controller.DisplayName ?? controller.Name;
+                                                        }
+                                                        if (name.ToLower() == "v1")
+                                                        {
+                                                            continue;
+                                                        }
+
+
+                                                        <li class="controller" data-value="@controller.Name">
+                                                            <input type="hidden" class="area" value="@controller.AreaName" />
+                                                            @name
+                                                            @if (controller.Actions.Any())
+                                                            {
+                                                                <ul>
+                                                                    @foreach (var action in controller.Actions)
+                                                                    {
+                                                                        {
+                                                                            name = action.DisplayName ?? action.Name;
+                                                                        }
+                                                                        <li data-value="@action.Name"
+                                                                            @if (selectedController != null && selectedController.Actions.Any(a => a.Id == action.Id)) { <text> data-checked='1' </text> }>
+                                                                            @name
+                                                                        </li>
+                                                                    }
+                                                                </ul>
+                                                            }
+
+
+                                                        </li>
+                                                    }
+                                                </ol>
+                                            </div>
+                                        }
+
+                                    </div>
+                                </div>
+                                <div class="row clearfix">
+                                    <div class="col-md-6">
+                                        <button type="submit" class="btn btn-primary m-t-15 waves-effect">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style type="text/css">
+    .bonsai-checkbox-2 {
+        padding: 0px;
+        margin: 0px;
+        top: 8px;
+    }
+
+    .treebonsai {
+        margin-left: 30px;
+    }
+</style>
+
+@section scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/lib/jquery-qubit/jquery.qubit.js"></script>
+    <script src="~/lib/jquery-bonsai/jquery.bonsai.js"></script>
+    <script>
+        $(function () {
+            $('.tree').bonsai({
+                expandAll: false,
+                checkboxes: true,
+                createInputs: 'checkbox'
+            });
+            $('#tree2').bonsai({
+                expandAll: false,
+                checkboxes: true,
+                createInputs: 'checkbox'
+            });
+            $('form').submit(function () {
+                var i = 0, j = 0, k = 0;
+
+                $('.controller > input[type="checkbox"]:checked, .controller > input[type="checkbox"]:indeterminate').each(function () {
+                    var controller = $(this);
+                    if ($(controller).prop('indeterminate')) {
+                        $(controller).prop("checked", true);
+                    }
+                    var controllerName = 'SelectedControllers[' + i + ']';
+                    $(controller).prop('name', controllerName + '.Name');
+
+                    var area = $(controller).next().next();
+                    $(area).prop('name', controllerName + '.AreaName');
+
+                    $('ul > li > input[type="checkbox"]:checked', $(controller).parent()).each(function () {
+                        var action = $(this);
+                        var actionName = controllerName + '.Actions[' + j + '].Name';
+                        $(action).prop('name', actionName);
+                        j++;
+                    });
+                    j = 0;
+                    i++;
+                });
+                $('.menulist > input[type="checkbox"]:checked').each(function () {
+                    var controllerName = 'MenuList';
+                    var action = $(this);
+                    var actionName = controllerName + '[' + k + ']';
+                    console.log(actionName);
+                    $(action).prop('name', actionName);
+                    k++;
+                });
+
+
+                return true;
+            });
+        });
+    </script>
+}
+<style type="text/css">
+    .title {
+        border-bottom: 1px solid rgba(204, 204, 204, 0.35);
+        width: 100%;
+        padding-bottom: 5px;
+    }
+
+    li .thumb {
+        margin: 11px 0 0 -1em;
+        font-size: 23px;
+    }
+
+    }
+
+    [type="checkbox"] + label {
+        top: 10px;
+    }
+
+    .form-control {
+        border-bottom: 1px solid #808080 !important;
+    }
+</style>
