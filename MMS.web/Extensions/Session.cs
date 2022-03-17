@@ -13,7 +13,7 @@ namespace MMS.web.Extensions
         /// <summary>
         /// 
         /// </summary>
-        public static string UserId { get; set; } = "";
+        public static string UserID { get; set; } = "";
         /// <summary>
         /// 
         /// </summary>

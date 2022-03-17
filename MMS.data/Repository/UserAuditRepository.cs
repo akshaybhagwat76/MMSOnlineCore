@@ -215,7 +215,7 @@ namespace MMS.data.Repository
 				{
 					var query = "[dbo].UserAudit_INSERT";
 					var param = new DynamicParameters();
-					param.Add("userId", model.UserId, DbType.Guid);
+					param.Add("userId", model.UserId, DbType.Int32);
 					param.Add("sessionId", model.SessionId, DbType.String);
 					param.Add("ipAddress", model.IpAddress, DbType.String);
 					param.Add("pageAccessed", model.PageAccessed, DbType.String);
@@ -226,9 +226,8 @@ namespace MMS.data.Repository
 					param.Add("actionName", model.ActionName, DbType.String);
 					param.Add("urlReferrer", model.UrlReferrer, DbType.String);
 					param.Add("area", model.Area, DbType.String);
-					param.Add("roleId", model.RoleId, DbType.Guid);
+					//param.Add("roleId", model.RoleId, DbType.Guid);
 					param.Add("langId", model.LangId, DbType.String);
-					param.Add("isFirstLogin", model.IsFirstLogin, DbType.String);
 					param.Add("createdOn", model.CreatedOn, DbType.DateTime);
 					var objs = await SqlMapper.ExecuteScalarAsync<System.Int64>(connection, query, param, commandType: CommandType.StoredProcedure);
 					return objs;
@@ -308,7 +307,7 @@ namespace MMS.data.Repository
 					var query = "[dbo].UserAudit_UPDATE";
 					var param = new DynamicParameters();
 					param.Add("auditId", model.AuditId, DbType.Int64);
-					param.Add("userId", model.UserId, DbType.Guid);
+					param.Add("userId", model.UserId, DbType.Int32);
 					param.Add("sessionId", model.SessionId, DbType.String);
 					param.Add("ipAddress", model.IpAddress, DbType.String);
 					param.Add("pageAccessed", model.PageAccessed, DbType.String);
@@ -319,9 +318,8 @@ namespace MMS.data.Repository
 					param.Add("actionName", model.ActionName, DbType.String);
 					param.Add("urlReferrer", model.UrlReferrer, DbType.String);
 					param.Add("area", model.Area, DbType.String);
-					param.Add("roleId", model.RoleId, DbType.Guid);
+					//param.Add("roleId", model.RoleId, DbType.Guid);
 					param.Add("langId", model.LangId, DbType.String);
-					param.Add("isFirstLogin", model.IsFirstLogin, DbType.String);
 					param.Add("createdOn", model.CreatedOn, DbType.DateTime);
 					var objs = await SqlMapper.ExecuteAsync(connection, query, param, commandType: CommandType.StoredProcedure);
 					return objs;

@@ -60,33 +60,13 @@ namespace MMS.web.Filters
 
                 objaudit.LangId = "1";
 
-                Guid result;
-
-                if (Guid.TryParse(_httpContextAccessor.HttpContext.Session.GetString(AllSessionKey.UserId), out result))
+                if (!string.IsNullOrEmpty(_httpContextAccessor.HttpContext.Session.GetString("UserID")))
                 {
-                    objaudit.UserId = Guid.Parse(_httpContextAccessor.HttpContext.Session.GetString(AllSessionKey.UserId));
+                    objaudit.UserId = int.Parse(_httpContextAccessor.HttpContext.Session.GetString("UserID"));
                 }
                 else
                 {
                     objaudit.UserId = null;
-                }
-
-                if (Guid.TryParse(_httpContextAccessor.HttpContext.Session.GetString(AllSessionKey.RoleId), out result))
-                {
-                    objaudit.RoleId = Guid.Parse(_httpContextAccessor.HttpContext.Session.GetString(AllSessionKey.RoleId));
-                }
-                else
-                {
-                    objaudit.RoleId = null;
-                }
-
-                if (!string.IsNullOrEmpty(Convert.ToString(_httpContextAccessor.HttpContext.Session.GetString(AllSessionKey.IsFirstLogin))))
-                {
-                    objaudit.IsFirstLogin = Convert.ToString(_httpContextAccessor.HttpContext.Session.GetString(AllSessionKey.IsFirstLogin));
-                }
-                else
-                {
-                    objaudit.IsFirstLogin = "";
                 }
 
                 objaudit.SessionId = filterContext.HttpContext.Session.Id; ; // Application SessionID // User IPAddress 
@@ -106,6 +86,14 @@ namespace MMS.web.Filters
                 if (uriReferer != null)
                 {
                     objaudit.UrlReferrer = header.Referer.AbsoluteUri;
+                }
+
+                if (!string.IsNullOrEmpty(request.QueryString.Value)) {
+                    objaudit.PageAccessed += request.QueryString.Value;
+                }
+                if(!string.IsNullOrEmpty(objaudit.PageAccessed) && objaudit.PageAccessed.Contains("home"))
+                {
+                    objaudit.PageAccessed = objaudit.PageAccessed.Replace("home", "transactions");
                 }
 
                 await _uowProvider.UserAuditRepository.Insert(objaudit);

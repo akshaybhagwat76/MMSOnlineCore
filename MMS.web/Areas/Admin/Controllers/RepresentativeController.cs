@@ -65,7 +65,6 @@ namespace MMS.web.Areas.Admin.Controllers
         /// <param name="m"></param>
         /// <returns></returns>
         [HttpPost]
-
         public async Task<IActionResult> Index(RepresentativeModel m)
         {
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString("UserID")))

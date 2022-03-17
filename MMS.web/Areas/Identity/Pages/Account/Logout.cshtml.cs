@@ -78,14 +78,14 @@ namespace MMS.web.Areas.Identity.Pages.Account
             try
             {
                 var objaudit = new MMS.data.Entities.UserAudit();
-                objaudit.RoleId = Guid.Parse(User.FindFirst("RoleId").Value);
+                //objaudit.RoleId = Guid.Parse(User.FindFirst("RoleId").Value);
                 objaudit.ControllerName = "Account";
                 objaudit.ActionName = "Logout";
                 objaudit.Area = "identity";
                 objaudit.LoggedOutAt = DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
                 if (_httpContextAccessor.HttpContext != null)
                     objaudit.IpAddress = Convert.ToString(_httpContextAccessor.HttpContext.Connection.RemoteIpAddress);
-                objaudit.UserId = Guid.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+                objaudit.UserId = Convert.ToInt32(HttpContext.Session.GetString("UserID"));
                 objaudit.PageAccessed = "";
                 objaudit.UrlReferrer = "";
                 objaudit.SessionId = HttpContext.Session.Id;

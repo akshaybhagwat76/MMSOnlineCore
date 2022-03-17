@@ -21,7 +21,7 @@ namespace MMS.data.Entities
 		/// <summary>
 		///  UserId (System.Guid? )
 		/// </summary>
-		public System.Guid? UserId { get; set; }
+		public System.Int32? UserId { get; set; }
 		/// <summary>
 		///  SessionId (System.String )
 		/// </summary>
@@ -63,17 +63,9 @@ namespace MMS.data.Entities
 		/// </summary>
 		public System.String Area { get; set; }
 		/// <summary>
-		///  RoleId (System.Guid? )
-		/// </summary>
-		public System.Guid? RoleId { get; set; }
-		/// <summary>
 		///  LangId (System.String )
 		/// </summary>
 		public System.String LangId { get; set; }
-		/// <summary>
-		///  IsFirstLogin (System.String )
-		/// </summary>
-		public System.String IsFirstLogin { get; set; }
 		/// <summary>
 		///  CreatedOn (System.DateTime? )
 		/// </summary>

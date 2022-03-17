@@ -1,16 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MMS.data.UnitOfWork;
-using MMS.web.Areas.Admin.ViewModels.Input;
-using MMS.web.Config;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Microsoft.Extensions.Caching.Memory;
 using MMS.web.Filters;
 
 namespace MMS.web.Areas.Admin.Controllers
@@ -40,16 +32,6 @@ namespace MMS.web.Areas.Admin.Controllers
         {
             return View();
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        //public IActionResult login()
-        //{
-        //    return RedirectToAction("login", "Home", new { area = "" });
-        //}
-
         /// <summary>
         /// 
         /// </summary>

@@ -149,7 +149,7 @@ namespace MMS.web.Areas.Identity.Pages.Account
                             HttpContext.Session.SetString("UserID", user.UserID.ToString());
                             HttpContext.Session.SetString("AccountId", user.AccountID);
                             HttpContext.Session.SetString("GivenName", user.Name);
-
+                            AuditLogin( user.UserID);
 
                             return LocalRedirect(Url.GetLocalUrl("~/admin"));
                         }
@@ -248,12 +248,12 @@ namespace MMS.web.Areas.Identity.Pages.Account
         /// <summary>
         /// 
         /// </summary>
-        private async void AuditLogin(Guid? RoleId, Guid? UserId)
+        private async void AuditLogin(Int32? UserId)
         {
             try 
             {
                 var audit = new MMS.data.Entities.UserAudit();
-                audit.RoleId = RoleId;
+                //audit.RoleId = RoleId;
                 audit.ControllerName = "Account";
                 audit.ActionName = "Login";
                 audit.Area = "identity";

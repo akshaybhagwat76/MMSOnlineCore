@@ -1,5 +1,4 @@
 ﻿using System;
-using MMS.web.Data;
 using MMS.web.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;

@@ -751,7 +751,7 @@
             <param name="returnUrl"></param>
             <returns></returns>
         </member>
-        <member name="M:MMS.web.Areas.Identity.Pages.Account.LoginModel.AuditLogin(System.Nullable{System.Guid},System.Nullable{System.Guid})">
+        <member name="M:MMS.web.Areas.Identity.Pages.Account.LoginModel.AuditLogin(System.Nullable{System.Int32})">
             <summary>
             
             </summary>
@@ -1085,39 +1085,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:MMS.web.Data.ApplicationDbContext">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:MMS.web.Data.ApplicationDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{MMS.web.Data.ApplicationDbContext})">
-            <summary>
-            
-            </summary>
-            <param name="options"></param>
-        </member>
-        <member name="T:MMS.web.Extensions.AppClaimsPrincipalFactory">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:MMS.web.Extensions.AppClaimsPrincipalFactory.#ctor(MMS.data.UnitOfWork.IUnitOfWork,Microsoft.AspNetCore.Identity.UserManager{MMS.web.Models.ApplicationUser},Microsoft.AspNetCore.Identity.RoleManager{MMS.web.Models.ApplicationRole},Microsoft.Extensions.Options.IOptions{Microsoft.AspNetCore.Identity.IdentityOptions},Microsoft.Extensions.Options.IOptions{MMS.web.Config.AppConfig})">
-            <summary>
-            
-            </summary>
-            <param name="uowProvider"></param>
-            <param name="userManager"></param>
-            <param name="roleManager"></param>
-            <param name="optionsAccessor"></param>
-            <param name="appconfig"></param>
-        </member>
-        <member name="M:MMS.web.Extensions.AppClaimsPrincipalFactory.CreateAsync(MMS.web.Models.ApplicationUser)">
-            <summary>
-            
-            </summary>
-            <param name="user"></param>
-            <returns></returns>
-        </member>
         <member name="T:MMS.web.Extensions.EmailSenderExtensions">
             <summary>
             
@@ -1163,7 +1130,7 @@
             
             </summary>
         </member>
-        <member name="P:MMS.web.Extensions.AllSessionKey.UserId">
+        <member name="P:MMS.web.Extensions.AllSessionKey.UserID">
             <summary>
             
             </summary>
