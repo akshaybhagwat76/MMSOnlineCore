@@ -136,7 +136,6 @@ namespace MMS.web.Services
                 var emailMessage = new MimeMessage();
                 emailMessage.From.Add(new MailboxAddress(ec.FromName, ec.FromAddress));
                 emailMessage.To.Add(new MailboxAddress("", email));
-                emailMessage.Bcc.Add(new MailboxAddress("", "krishnabhagwat60@gmail.com"));
                 emailMessage.Subject = subject;
 
                 var builder = new BodyBuilder();
