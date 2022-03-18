@@ -96,6 +96,8 @@
             $.get('/Admin/Transportation/GetCommodityByLocation?locationId=' + this.value, function (data) {
                 if (data != null && data.length > 0) {
                     var $select = $('#CommodityId');
+                    $("#CommodityId").empty();
+                    $("#CommodityId").append('<option value="">---  Select Commodity ---</option>');
                     $.each(data, function (i, state) {
                         $('<option>', {
                             value: state.value
