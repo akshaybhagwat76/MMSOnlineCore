@@ -117,22 +117,22 @@ namespace MMS.web.Areas.Admin.Controllers
         public JsonResult GetCommodityByLocation(string locationId)
         {
             if (!string.IsNullOrEmpty(locationId)) {
-                List<data.Entities.TransportationLocations> Locationdata = new List<data.Entities.TransportationLocations>();
-                var ldata = _uowProvider.TransportationLocationsRepository.Search(1, 50000).Result;
+                List<data.Entities.TransportationCommodities> Commoditiesdata = new List<data.Entities.TransportationCommodities>();
+                var ldata = _uowProvider.TransportationCommoditiesRepository.Search(1, 50000).Result;
 
-                var locSelectList = new List<SelectListItem>();
+                var commSelectList = new List<SelectListItem>();
                 if (ldata != null && ldata.Count() > 0)
                 {
-                    Locationdata = ldata.Where(x => x.AccountID == HttpContext.Session.GetString("AccountId") && x.LocationID == Convert.ToInt32(locationId)).OrderBy(c => c.LocationID).ToList();
-                    locSelectList = Locationdata.Select(state => new SelectListItem
+                    Commoditiesdata = ldata.Where(x => x.AccountID == HttpContext.Session.GetString("AccountId") && x.LocationID == Convert.ToInt32(locationId)).OrderBy(c => c.LocationID).ToList();
+                    commSelectList = Commoditiesdata.Select(state => new SelectListItem
                     {
-                        Text = state.LocationName.ToString(),
-                        Value = state.LocationID.ToString(),
+                        Text = state.Commodity_Name.ToString(),
+                        Value = state.CommodityID.ToString(),
                         Group = new SelectListGroup() { Name = state.LocationID.ToString() }
                     })
                    .ToList();
                 }
-                return Json(locSelectList);
+                return Json(commSelectList);
             }
             else
             {
