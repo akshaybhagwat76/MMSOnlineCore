@@ -23,7 +23,7 @@ namespace MMS.data.Repository
 {
 	public partial class TransactionHeaderRepository : BaseRepository, ITransactionHeaderRepository
 	{
-		public async Task<TransactionHeader> Search(string ticketNo)
+		public async Task<TransactionHeader> Search(string ticketNo, string accountId)
 		{
 
 			using (var connection = connectionFactory.GetConnection)
@@ -31,6 +31,7 @@ namespace MMS.data.Repository
 				var query = "[dbo].Cust_TransactionHeader";
 				var param = new DynamicParameters();
 				param.Add("@ticketNo", ticketNo);
+				param.Add("@accountId", accountId);
 
 				var list = await SqlMapper.QueryAsync<TransactionHeader>(connection, query, param, commandType: CommandType.StoredProcedure);
 

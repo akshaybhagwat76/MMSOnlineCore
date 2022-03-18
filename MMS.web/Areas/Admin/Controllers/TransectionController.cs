@@ -40,12 +40,17 @@ namespace MMS.web.Areas.Admin.Controllers
         public async Task<IActionResult> detail(string ticketNo)
         {
             var obj = new TicketModel();
-            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("UserID")))
+            if (!string.IsNullOrEmpty(UserID))
             {
                 try
                 {
-                    var TransactionHeader = await _uowProvider.TransactionHeaderRepository.Search(ticketNo);
+                    var TransactionHeader = await _uowProvider.TransactionHeaderRepository.Search(ticketNo,AccountId);
 
+                    if (TransactionHeader == null)
+                    {
+                        return RedirectToAction("login", "Home", new { area = "" });
+
+                    }
                     obj.TicketNumber = TransactionHeader.TicketNumber;
                     obj.TicketDate = TransactionHeader.TicketDate.Value.ToString("MM-dd-yyyy");
                     obj.OrderNumber = TransactionHeader.OrderNumber;

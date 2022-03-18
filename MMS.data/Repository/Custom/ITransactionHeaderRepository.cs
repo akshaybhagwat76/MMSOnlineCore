@@ -18,7 +18,7 @@ namespace MMS.data.Repository
 {
 	public partial interface ITransactionHeaderRepository
 	{
-		Task<TransactionHeader> Search(string ticketNo);
+		Task<TransactionHeader> Search(string ticketNo, string accountId);
 		Task<IEnumerable<TransactionHeader>> Search(string accountId, int pageIndex, int pageSize, string sortBy, string orderBy, string searchstring);
 	}
 }
