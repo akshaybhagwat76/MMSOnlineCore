@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using MMS.data.UnitOfWork;
 using MMS.web.Areas.Admin.ViewModels.Input;
 using MMS.web.Filters;
@@ -32,10 +33,45 @@ namespace MMS.web.Areas.Admin.Controllers
         /// </summary>
         /// <param name="msg"></param>
         /// <returns></returns>
-        public IActionResult detail(string msg)
+        public async Task<IActionResult> detail(string msg)
         {
             ViewBag.Message = msg;
             var obj = new TransportationModel();
+            List<data.Entities.TransportationCommodities> comdata = new List<data.Entities.TransportationCommodities>();
+            var idata = await _uowProvider.TransportationCommoditiesRepository.Search(1, 50000);
+
+                var comdataSelectList = new List<SelectListItem>();
+            if (idata != null && idata.Count() > 0)
+            {
+                comdata = idata.Where(x => x.AccountID == HttpContext.Session.GetString("AccountId")).OrderBy(c => c.CommodityID).ToList();
+
+
+                comdataSelectList= comdata.Select(state => new SelectListItem
+                {
+                    Text = state.Commodity_Name.ToString(),
+                    Value = state.CommodityID.ToString(),
+                    Group = new SelectListGroup() { Name = state.LocationID.ToString() }
+                })
+                 .ToList();
+            }
+            ViewBag.lstCommodities = new SelectList(comdataSelectList, "Value", "Text");
+
+            List<data.Entities.TransportationLocations> Locationdata = new List<data.Entities.TransportationLocations>();
+            var ldata = await _uowProvider.TransportationLocationsRepository.Search(1, 50000);
+
+            var locSelectList = new List<SelectListItem>();
+            if (ldata != null && ldata.Count() > 0)
+            {
+                Locationdata = ldata.Where(x => x.AccountID == HttpContext.Session.GetString("AccountId")).OrderBy(c => c.LocationID).ToList();
+                locSelectList = Locationdata.Select(state => new SelectListItem
+                {
+                    Text = state.LocationName.ToString(),
+                    Value = state.LocationID.ToString()
+                })
+               .ToList();
+            }
+            ViewBag.lstLocations = new SelectList(locSelectList, "Value", "Text");
+
             return View(obj);
         }
 
@@ -45,7 +81,7 @@ namespace MMS.web.Areas.Admin.Controllers
         /// <param name="m"></param>
         /// <returns></returns>
         [HttpPost]
-       // [ValidateAntiForgeryToken]
+        // [ValidateAntiForgeryToken]
         public async Task<IActionResult> detail(TransportationModel m)
         {
             if (!string.IsNullOrEmpty(UserID))
@@ -75,6 +111,33 @@ namespace MMS.web.Areas.Admin.Controllers
                 return View(m);
             }
             return RedirectToAction("login", "Home");
+        }
+
+        [HttpGet]
+        public JsonResult GetCommodityByLocation(string locationId)
+        {
+            if (!string.IsNullOrEmpty(locationId)) {
+                List<data.Entities.TransportationLocations> Locationdata = new List<data.Entities.TransportationLocations>();
+                var ldata = _uowProvider.TransportationLocationsRepository.Search(1, 50000).Result;
+
+                var locSelectList = new List<SelectListItem>();
+                if (ldata != null && ldata.Count() > 0)
+                {
+                    Locationdata = ldata.Where(x => x.AccountID == HttpContext.Session.GetString("AccountId") && x.LocationID == Convert.ToInt32(locationId)).OrderBy(c => c.LocationID).ToList();
+                    locSelectList = Locationdata.Select(state => new SelectListItem
+                    {
+                        Text = state.LocationName.ToString(),
+                        Value = state.LocationID.ToString(),
+                        Group = new SelectListGroup() { Name = state.LocationID.ToString() }
+                    })
+                   .ToList();
+                }
+                return Json(locSelectList);
+            }
+            else
+            {
+                return Json("");
+            }
         }
     }
 }

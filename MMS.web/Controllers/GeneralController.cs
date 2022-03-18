@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MMS.data.UnitOfWork;
 using System.Collections.Generic;
@@ -37,7 +38,7 @@ namespace MMS.web.Controllers
             var idata = await _uowProvider.TransportationLocationsRepository.Search(1, 50000);
 
             if (idata != null && idata.Count() > 0)
-                data = idata.OrderBy(c => c.LocationID).ToList();
+                data = idata.Where(x=>x.AccountID== HttpContext.Session.GetString("AccountId")).OrderBy(c => c.LocationID).ToList();
 
             data.Insert(0, new data.Entities.TransportationLocations { LocationID = null, LocationName = (string.IsNullOrWhiteSpace(title) ? "---  Select Location ---" : title) });
 
@@ -61,7 +62,7 @@ namespace MMS.web.Controllers
             var idata = await _uowProvider.TransportationCommoditiesRepository.Search(1, 50000);
 
             if (idata != null && idata.Count() > 0)
-                data = idata.OrderBy(c => c.CommodityID).ToList();
+                data = idata.Where(x => x.AccountID == HttpContext.Session.GetString("AccountId")).OrderBy(c => c.CommodityID).ToList();
 
             data.Insert(0, new data.Entities.TransportationCommodities { CommodityID = null, Commodity_Name = (string.IsNullOrWhiteSpace(title) ? "---  Select Commodity ---" : title) });
 
