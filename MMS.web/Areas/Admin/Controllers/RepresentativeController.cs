@@ -47,6 +47,7 @@ namespace MMS.web.Areas.Admin.Controllers
                 {
                     obj.Name = data.Name;
                     obj.Email = data.Email;
+                    obj.UserName= data.UserName;
                     obj.OfficePhone = data.OfficePhone;
                     obj.CellPhone = data.CellPhone;
                     obj.ImageURL = data.Image_URL;
@@ -75,8 +76,9 @@ namespace MMS.web.Areas.Admin.Controllers
                     {
                         Dictionary<string, string> data = new Dictionary<string, string>();
                         data.Add("<<currentDate>>", DateTime.Now.Date.ToString("dd MMM, yyyy"));
-                        data.Add("<<username>>", m.Email);
-                        data.Add("<<name>>", m.Name);
+                        //data.Add("<<username>>", m.Email);
+                        data.Add("<<username>>", m.UserName);
+                        //data.Add("<<name>>", m.Name);
                         data.Add("<<message>>", m.Message);
 
                         await _emailSender.SendEmailAsync(m.Email, "Enquiry from supplier", data, "ContactUs.html");

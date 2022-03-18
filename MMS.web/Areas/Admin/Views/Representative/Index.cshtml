@@ -65,6 +65,7 @@
                                 @Html.ValidationSummary(true)
 
                                 @Html.HiddenFor(c => c.Name)
+                                @Html.HiddenFor(c => c.UserName)
                                 @Html.HiddenFor(c => c.Email)
 
                                 @Html.TextAreaFor(c => c.Message, new { @class = "form-control", @style = "height:200px;" })

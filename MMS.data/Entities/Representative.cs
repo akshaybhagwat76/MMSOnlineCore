@@ -25,6 +25,8 @@ namespace MMS.data.Entities
 		/// <summary>
 		///  Name (System.String )
 		/// </summary>
+		public System.String UserName { get; set; }
+		/// 
 		public System.String Name { get; set; }
 		/// <summary>
 		///  Email (System.String )

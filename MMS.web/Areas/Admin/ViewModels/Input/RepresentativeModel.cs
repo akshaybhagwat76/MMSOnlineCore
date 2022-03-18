@@ -15,6 +15,8 @@ namespace MMS.web.Areas.Admin.ViewModels.Input
 		///  Name (System.String )
 		/// </summary>
 		public System.String Name { get; set; }
+		public System.String UserName { get; set; }
+
 		/// <summary>
 		///  Email (System.String )
 		/// </summary>

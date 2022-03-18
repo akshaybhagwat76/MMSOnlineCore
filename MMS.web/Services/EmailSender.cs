@@ -157,9 +157,12 @@ namespace MMS.web.Services
                 {
                     client.ServerCertificateValidationCallback = (sender, certificate, certChainType, errors) => true;
                     client.AuthenticationMechanisms.Remove("XOAUTH2");
-                    await client.ConnectAsync(ec.MailServerAddress, 587, SecureSocketOptions.StartTls).ConfigureAwait(false);
+                    
+                    await client.ConnectAsync(ec.MailServerAddress, Convert.ToInt32(ec.MailServerPort), SecureSocketOptions.StartTlsWhenAvailable).ConfigureAwait(false);
                     await client.AuthenticateAsync(new NetworkCredential(ec.UserId, ec.UserPassword)).ConfigureAwait(false);
                     await client.SendAsync(emailMessage).ConfigureAwait(false);
+                    await client.DisconnectAsync(true);
+                    client.Dispose();
                 }
 
             }
