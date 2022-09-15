@@ -101,6 +101,10 @@ namespace MMS.web.Areas.Admin.ViewModels.Input
 		///  TotalCost (System.Decimal? )
 		/// </summary>
 		public System.Decimal? TotalCost { get; set; }
+		public System.DateTime? TicketDate { get; set; }
+		public int Weight { get; set; }
+		public string OrderNumber { get; set; }
+
 	}
 
 	/// <summary>

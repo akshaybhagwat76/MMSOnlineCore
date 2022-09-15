@@ -13,13 +13,13 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>E:\MISC\MMSOnline\MMSOnline\MMSOnline\MMS.web\mms.web.xml</DocumentationFile>
+    <DocumentationFile>C:\Project\MMSOnlineCore\MMSOnlineCore\MMS.web\MMS.web.xml</DocumentationFile>
     <OutputPath></OutputPath>
     <WarningLevel>5</WarningLevel>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>E:\MISC\MMSOnline\MMSOnline\MMSOnline\MMS.web\MMS.web.xml</DocumentationFile>
+    <DocumentationFile>C:\Project\MMSOnlineCore\MMSOnlineCore\MMS.web\MMS.web.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

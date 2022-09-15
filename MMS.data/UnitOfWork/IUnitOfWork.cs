@@ -21,6 +21,8 @@ namespace MMS.data.UnitOfWork
 		IRepresentativeRepository RepresentativeRepository { get; }
 		ITransactionDetailRepository TransactionDetailRepository { get; }
 		ITransactionHeaderRepository TransactionHeaderRepository { get; }
+		IOrderDetailRepository OrderDetailRepository { get; }
+		IOrderHeaderRepository OrderHeaderRepository { get; }
 		ITransactionOtherPicturesRepository TransactionOtherPicturesRepository { get; }
 		ITransactionReceivedPaperwordRepository TransactionReceivedPaperwordRepository { get; }
 		ITransactionScalePicturesRepository TransactionScalePicturesRepository { get; }

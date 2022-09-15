@@ -66,6 +66,25 @@ namespace MMS.data.Repository
 
 			}
 		}
+
+        public async Task<IEnumerable<TransactionHeader>> SearchbyOrderNo(int v1, int v2, string orderNo)
+        {
+			using (var connection = connectionFactory.GetConnection)
+			{
+				var query = "[dbo].[TransactionHeader_PAGINGWithOrderNo]";
+				var param = new DynamicParameters();
+				param.Add("@PageIndex", v1);
+				param.Add("@PageSize", v2);
+				param.Add("@OrderNo", orderNo);
+				var list = await SqlMapper.QueryAsync<TransactionHeader>(connection, query, param, commandType: CommandType.StoredProcedure);
+
+				if (list == null)
+					return null;
+				else
+					return list;
+
+			}
+		}
 	}
 }
 

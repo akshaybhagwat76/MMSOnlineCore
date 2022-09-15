@@ -21,6 +21,14 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
+                <li class="nav-item" @(ViewBag.IsTransportation ? "style=display:block" : "style=display:none")>
+                    <a href="~/admin/Order/Index" class="nav-link @(ss =="order" ? "active":"")">
+                        <i class="nav-icon fas fa-code-branch"></i>
+                        <p>
+                            Orders
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a href="~/admin/home/index" class="nav-link @(ss =="transection" || ss == "home" ? "active":"")">
                         <i class="nav-icon fas fa-code-branch"></i>
@@ -29,6 +37,7 @@
                         </p>
                     </a>
                 </li>
+
                 <li class="nav-item" @(ViewBag.IsTransportation ? "style=display:block" : "style=display:none")>
                     <a href="~/admin/transportation/detail" class="nav-link @(ss =="transportation" ? "active":"")">
                         <i class="nav-icon fas fa-user"></i>
@@ -46,13 +55,13 @@
                     </a>
                 </li>
                 @*<li class="nav-item">
-                        <a href="~/admin/auditlog" class="nav-link @(ss =="auditlog" ? "active":"")">
-                            <i class="nav-icon fas fa-history"></i>
-                            <p>
-                                Audit Logs
-                            </p>
-                        </a>
-                    </li>*@
+            <a href="~/admin/auditlog" class="nav-link @(ss =="auditlog" ? "active":"")">
+                <i class="nav-icon fas fa-history"></i>
+                <p>
+                    Audit Logs
+                </p>
+            </a>
+        </li>*@
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

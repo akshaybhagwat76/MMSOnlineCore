@@ -29,7 +29,8 @@ namespace MMS.data.Repository
 		Task<System.Int64> Insert(System.String accountID, System.String ticketNumber, System.String orderNumber, System.DateTime? ticketDate, System.String paymentTerms, System.String supplierTicket, System.String carrierTicket, System.String truckDescription, System.String status, System.String paymentReceiptURL);
 		Task<int> Update(TransactionHeader model);
 		Task<int> Update(System.Int64? id, System.String accountID, System.String ticketNumber, System.String orderNumber, System.DateTime? ticketDate, System.String paymentTerms, System.String supplierTicket, System.String carrierTicket, System.String truckDescription, System.String status, System.String paymentReceiptURL);
-		
+      
+		Task<IEnumerable<TransactionHeader>> SearchbyOrderNo(int v1, int v2, string orderNo);
 	}
 }
 

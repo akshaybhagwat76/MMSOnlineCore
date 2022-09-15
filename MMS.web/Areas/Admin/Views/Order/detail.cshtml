@@ -1,0 +1,146 @@
+﻿@model MMS.web.Areas.Admin.ViewModels.Input.OrderModel
+@{
+    ViewData["Title"] = "Orders";
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Order Details</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="~/admin/home/index">Home</a></li>
+                        <li class="breadcrumb-item active">Order Details</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                    <!-- About Me Box -->
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">About Order</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <strong><i class="fas fa-file-invoice mr-1"></i> Order Number</strong>
+
+                            <p class="text-muted">@Html.DisplayFor(c =>c.OrderNumber)</p>
+
+                            <hr>
+
+                            <strong><i class="fas fa-clock mr-1"></i>Effective Date</strong>
+
+                            <p class="text-muted"> @Model.EffectiveDate.Value.ToString("MM-dd-yyyy")</p>
+
+                            <hr>
+
+                            <strong><i class="fas fa-file-contract mr-1"></i>Expiration Date</strong>
+
+                            <p class="text-muted"> @Model.ExpirationDate.Value.ToString("MM-dd-yyyy")</p>
+
+                            <hr>
+
+                            <strong><i class="fas fa-address-card mr-1"></i>Status</strong>
+
+                            <p class="text-muted"> @Html.DisplayFor(c => c.Status)</p>
+
+                            <hr>
+
+                            
+
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-9">
+                    <div class="card">
+                        <div class="card-header p-2">
+                            <ul class="nav nav-pills">
+
+                                <li class="nav-item" @(Model.orderDetails.Any() ? "style=display:block" : "style=display:none")><a class="nav-link" href="#TicketDetails" data-toggle="tab">Order No: @Model.orderDetails.FirstOrDefault().OrderNumber</a></li>
+                                <li class="nav-item" @(Model.orderDetails.Any() ? "style=display:block" : "style=display:none")><a class="nav-link" href="#ScalePictures" data-toggle="tab">Ordered Weight: @Model.orderDetails.FirstOrDefault().OrderedWeight</a></li>
+                                <li class="nav-item" @(Model.orderDetails.Any() ? "style=display:block" : "style=display:none")><a class="nav-link" href="#ReceivedPaperwords" data-toggle="tab">Received Weight: @Model.orderDetails.FirstOrDefault().ReceivedWeight</a></li>
+                                <li class="nav-item" @(Model.orderDetails.Any() ? "style=display:block" : "style=display:none")><a class="nav-link" href="#OtherPictures" data-toggle="tab">Due Weight: @Model.orderDetails.FirstOrDefault().DueWeight</a></li>
+                                <li class="nav-item" @(Model.orderDetails.Any() ? "style=display:block" : "style=display:none")><a class="nav-link" href="#OtherPictures" data-toggle="tab">Price: @Model.orderDetails.FirstOrDefault().Price</a></li>
+
+                            </ul>
+                        </div><!-- /.card-header -->
+                        <!-- /.card -->
+                    </div>
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Ticket Details</h3>
+                        </div><!-- /.card-header -->
+                        <div class="card-body">
+                            <div class="tab-content">
+                                <div class="active tab-pane" id="TicketDetails">
+
+                                    <div class="table-responsive">
+                                        <table id="myTable" class="table table-bordered table-striped table-hover nowrap" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Ticket Number</th>
+                                                    <th>Gross Weight</th>
+                                                    <th>Ticket Date</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @if (Model.TicketDetails.Any())
+                                                {
+                                                    foreach (var item in Model.TicketDetails)
+                                                    {
+                                                        <tr>
+                                                            <td>@item.TicketNumber</td>
+                                                            <td>@item.GrossWeight</td>
+                                                            <td>@item.TicketDate.Value.ToString("MM-dd-yyyy")</td>
+                                                        </tr>
+                                                    }
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- /.tab-content -->
+                            <!--</div>--><!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<style>
+    @@media only screen and (max-width: 375px) {
+        .img-container-div {
+            width: 110%;
+            text-align: center;
+            margin-left: -5%;
+            margin-right: -18%;
+        }
+    }
+
+    .img-container-div {
+        margin-left: -20%;
+    }
+
+</style>

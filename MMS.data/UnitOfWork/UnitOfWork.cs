@@ -33,7 +33,8 @@ namespace MMS.data.UnitOfWork
 		public IUserAuditRepository _userauditRepository;
 		public IAccountsRepository _accountsRepository;
 		public IUsersRepository _usersRepository;
-
+		public IOrderDetailRepository _OrderDetailRepository;
+		public IOrderHeaderRepository _OrderHeaderRepository;
 		public IConnectionFactory _connectionFactory;
 		public UnitOfWork(IConnectionFactory connectionFactory)
 		{
@@ -195,6 +196,31 @@ namespace MMS.data.UnitOfWork
 				return _userauditRepository;
 			}
 		}
+
+        public IOrderDetailRepository OrderDetailRepository
+        {
+			get
+			{
+				if (_OrderDetailRepository == null)
+				{
+					_OrderDetailRepository = new OrderDetailRepository(_connectionFactory);
+				}
+				return _OrderDetailRepository;
+			}
+		}
+
+        public IOrderHeaderRepository OrderHeaderRepository
+		{
+			get
+			{
+				if (_OrderHeaderRepository == null)
+				{
+					_OrderHeaderRepository = new OrderHeaderRepository(_connectionFactory);
+				}
+				return _OrderHeaderRepository;
+			}
+		}
+
 		void IUnitOfWork.Complete()
 		{
 			throw new NotImplementedException();

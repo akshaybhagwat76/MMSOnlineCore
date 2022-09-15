@@ -119,7 +119,7 @@ namespace MMS.web.Controllers
                 if (pre == post)
                 {
 
-                    return RedirectToAction("Index", "Home", new { area = "Admin" });
+                    return RedirectToAction("Index", "Order", new { area = "Admin" });
                     //return RedirectToAction("Home", "Index", null);
                 }
             }
