@@ -9,8 +9,9 @@ namespace MMS.web.Areas.Admin.ViewModels.Input
     public class OrderModel
     {
        
-        public List<TicketDetails> TicketDetails { get; set; }
+        public List<TransactionDetail> TicketDetails { get; set; }
         public List<OrderDetails> orderDetails { get; set; }
+        public string PaymentReceiptURL { get; set; }
         public string OrderNumber { get; set; }
         public System.DateTime? EffectiveDate { get; set; }
         public System.DateTime? ExpirationDate { get; set; }

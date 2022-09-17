@@ -83,6 +83,7 @@ namespace MMS.web.Areas.Admin.Controllers
                     obj.EffectiveDate = OrderHeader.EffectiveDate;
                     obj.ExpirationDate = OrderHeader.ExpirationDate;
                     obj.Status = OrderHeader.Status;
+                    obj.PaymentReceiptURL = OrderHeader.PaymentReceiptURL;
                     var OrderDetail = await _uowProvider.OrderDetailRepository.Search(OrderNo);
 
                     obj.orderDetails = new List<OrderDetails>();
@@ -97,15 +98,13 @@ namespace MMS.web.Areas.Admin.Controllers
                     }));
 
                     var transactionHeader = await _uowProvider.TransactionHeaderRepository.SearchbyOrderNo(1, 10, OrderNo);
-                    obj.TicketDetails = new List<TicketDetails>();
-                    obj.TicketDetails.AddRange(transactionHeader.Select(o => new TicketDetails
+                    obj.TicketDetails = new List<MMS.data.Entities.TransactionDetail>();
+                    obj.TicketDetails.AddRange(transactionHeader.Select(o => new MMS.data.Entities.TransactionDetail
                     {
                         TicketNumber = o.TicketNumber,
                         TicketDate = o.TicketDate,
-                        GrossWeight = o.Weight
+                        Gross = o.Gross
                     }));
-
-
 
                     return View(obj);
                 }

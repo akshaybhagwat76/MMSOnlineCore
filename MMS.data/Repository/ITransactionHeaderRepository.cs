@@ -30,7 +30,7 @@ namespace MMS.data.Repository
 		Task<int> Update(TransactionHeader model);
 		Task<int> Update(System.Int64? id, System.String accountID, System.String ticketNumber, System.String orderNumber, System.DateTime? ticketDate, System.String paymentTerms, System.String supplierTicket, System.String carrierTicket, System.String truckDescription, System.String status, System.String paymentReceiptURL);
       
-		Task<IEnumerable<TransactionHeader>> SearchbyOrderNo(int v1, int v2, string orderNo);
+		Task<IEnumerable<TransactionDetail>> SearchbyOrderNo(int v1, int v2, string orderNo);
 	}
 }
 

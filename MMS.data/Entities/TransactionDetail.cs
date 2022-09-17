@@ -26,6 +26,8 @@ namespace MMS.data.Entities
 		///  TicketNumber (System.String )
 		/// </summary>
 		public System.String TicketNumber { get; set; }
+		public System.DateTime? TicketDate { get; set; }
+
 		/// <summary>
 		///  DetailID (System.Int32? )
 		/// </summary>

@@ -55,6 +55,9 @@
         $(document).ready(function () {
             $("#myTable").DataTable({
                 "order": [[0, "desc"]],
+                "language": {
+                    "zeroRecords": " "
+                },
                 //"scrollX": true,
                 "ajax": {
                     "url": "@Url.Content("~/admin/home/getTransections")",

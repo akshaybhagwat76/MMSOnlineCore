@@ -63,7 +63,7 @@
                 "columns":
                     [
                         {
-                            "name": "OrderNumber", "title": "Order Number.",
+                            "name": "OrderNumber", "title": "Order Number",
                              render: function (data, type, row) {
                                  return '<a href= "/admin/Order/detail?OrderNo=' + row.orderNumber + '">' + row.orderNumber +'</a>';
                             },
@@ -73,7 +73,7 @@
                         {
                             "data": "status", "name": "Status", "title": "Status",
                             render: function (data, type, row) {
-                                return row.status ===true ?"Active":"DeActive";
+                                return row.status ===true ?"Open":"Closed";
                             },
                         }
                     ]

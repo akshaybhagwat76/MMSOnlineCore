@@ -67,7 +67,7 @@ namespace MMS.data.Repository
 			}
 		}
 
-        public async Task<IEnumerable<TransactionHeader>> SearchbyOrderNo(int v1, int v2, string orderNo)
+        public async Task<IEnumerable<TransactionDetail>> SearchbyOrderNo(int v1, int v2, string orderNo)
         {
 			using (var connection = connectionFactory.GetConnection)
 			{
@@ -76,7 +76,7 @@ namespace MMS.data.Repository
 				param.Add("@PageIndex", v1);
 				param.Add("@PageSize", v2);
 				param.Add("@OrderNo", orderNo);
-				var list = await SqlMapper.QueryAsync<TransactionHeader>(connection, query, param, commandType: CommandType.StoredProcedure);
+				var list = await SqlMapper.QueryAsync<TransactionDetail>(connection, query, param, commandType: CommandType.StoredProcedure);
 
 				if (list == null)
 					return null;

@@ -14,7 +14,7 @@
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="~/admin/home/index">Home</a></li>
+                        <li class="breadcrumb-item"><a href="~/admin/order/index">Home</a></li>
                         <li class="breadcrumb-item active">Order Details</li>
                     </ol>
                 </div>
@@ -34,10 +34,10 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
+
                             <strong><i class="fas fa-file-invoice mr-1"></i> Order Number</strong>
 
-                            <p class="text-muted">@Html.DisplayFor(c =>c.OrderNumber)</p>
-
+                            <p class="text-muted"><a href="@Model.PaymentReceiptURL" target="_blank">@Model.OrderNumber</a></p>
                             <hr>
 
                             <strong><i class="fas fa-clock mr-1"></i>Effective Date</strong>
@@ -54,11 +54,18 @@
 
                             <strong><i class="fas fa-address-card mr-1"></i>Status</strong>
 
-                            <p class="text-muted"> @Html.DisplayFor(c => c.Status)</p>
+                            <p class="text-muted">
+
+                                @if (Model.Status == true)
+                                {@Html.Raw("Active") }
+                            else
+                            { @Html.Raw("Closed")}
+
+                            </p>
 
                             <hr>
 
-                            
+
 
                         </div>
                         <!-- /.card-body -->
@@ -67,23 +74,70 @@
                 </div>
                 <!-- /.col -->
                 <div class="col-md-9">
-                    <div class="card">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Order Details</h3>
+                        </div><!-- /.card-header -->
+                        <div class="card-body">
+                            <div class="tab-content">
+                                <div class="active tab-pane" id="OrderDetails">
+
+                                    <div class="table-responsive">
+                                        <table id="myOrderTable" class="table table-bordered table-striped table-hover nowrap" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Item</th>
+                                                    <th>Ordered Weight</th>
+                                                    <th>Recieved Weight</th>
+                                                    <th>Due Weight</th>
+                                                    <th>Price</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @if (Model.orderDetails.Any())
+                                                {
+                                                    foreach (var item in Model.orderDetails)
+                                                    {
+                                                        <tr>
+                                                            <td>@item.ItemName</td>
+                                                            <td>@item.OrderedWeight</td>
+                                                            <td>@item.ReceivedWeight</td>
+
+                                                            <td>@item.DueWeight</td>
+                                                            <td>@item.Price</td>
+                                                        </tr>
+                                                    }
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- /.tab-content -->
+                            <!--</div>--><!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+
+                    <!--<div class="card">
                         <div class="card-header p-2">
                             <ul class="nav nav-pills">
 
-                                <li class="nav-item" @(Model.orderDetails.Any() ? "style=display:block" : "style=display:none")><a class="nav-link" href="#TicketDetails" data-toggle="tab">Order No: @Model.orderDetails.FirstOrDefault().OrderNumber</a></li>
+                                <li class="nav-item" @(Model.orderDetails.Any() ? "style=display:block" : "style=display:none")><a class="nav-link" href="#TicketDetails" data-toggle="tab">Item Name : @Model.orderDetails.FirstOrDefault().ItemName</a></li>
                                 <li class="nav-item" @(Model.orderDetails.Any() ? "style=display:block" : "style=display:none")><a class="nav-link" href="#ScalePictures" data-toggle="tab">Ordered Weight: @Model.orderDetails.FirstOrDefault().OrderedWeight</a></li>
                                 <li class="nav-item" @(Model.orderDetails.Any() ? "style=display:block" : "style=display:none")><a class="nav-link" href="#ReceivedPaperwords" data-toggle="tab">Received Weight: @Model.orderDetails.FirstOrDefault().ReceivedWeight</a></li>
                                 <li class="nav-item" @(Model.orderDetails.Any() ? "style=display:block" : "style=display:none")><a class="nav-link" href="#OtherPictures" data-toggle="tab">Due Weight: @Model.orderDetails.FirstOrDefault().DueWeight</a></li>
                                 <li class="nav-item" @(Model.orderDetails.Any() ? "style=display:block" : "style=display:none")><a class="nav-link" href="#OtherPictures" data-toggle="tab">Price: @Model.orderDetails.FirstOrDefault().Price</a></li>
 
                             </ul>
-                        </div><!-- /.card-header -->
-                        <!-- /.card -->
-                    </div>
+                        </div>-->
+                    <!-- /.card-header -->
+                    <!-- /.card -->
+                    <!--</div>-->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Ticket Details</h3>
+                            <h3 class="card-title">Order Tickets</h3>
                         </div><!-- /.card-header -->
                         <div class="card-body">
                             <div class="tab-content">
@@ -104,9 +158,9 @@
                                                     foreach (var item in Model.TicketDetails)
                                                     {
                                                         <tr>
-                                                            <td>@item.TicketNumber</td>
-                                                            <td>@item.GrossWeight</td>
-                                                            <td>@item.TicketDate.Value.ToString("MM-dd-yyyy")</td>
+                                                            <td><a href="/admin/transection/detail?ticketNo=@item.TicketNumber" target="_blank">@item.TicketNumber<a /></td>
+                                                            <td>@item.Gross</td>
+                                                            <td> @item.TicketDate.Value.ToString("MM-dd-yyyy")</td>
                                                         </tr>
                                                     }
                                                 }
@@ -123,8 +177,9 @@
                     </div>
                     <!-- /.col -->
                 </div>
-            <!-- /.row -->
-        </div><!-- /.container-fluid -->
+                <!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
     </section>
     <!-- /.content -->
 </div>
@@ -142,5 +197,4 @@
     .img-container-div {
         margin-left: -20%;
     }
-
 </style>
