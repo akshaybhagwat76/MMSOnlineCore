@@ -1,22 +1,12 @@
-﻿using AspNetSeo;
-using AspNetSeo.CoreMvc;
+﻿using AspNetSeo.CoreMvc;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
 using MMS.data.Entities;
 using MMS.data.UnitOfWork;
 using MMS.web.Extensions;
 using MMS.web.Models;
-using MMS.web.Services;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Security.Claims;
-using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 

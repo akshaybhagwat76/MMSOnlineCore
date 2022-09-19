@@ -1,5 +1,5 @@
 /***************************************************************/
-/* Code Writer (written by Anish M Mathew )                                 */
+/* Code Writer (written by Akshay S Bhagwat )                                 */
 /*                                                                          */
 /* This file was automatically generated using Code Writer                  */
 /* Any manual changes to this file will be overwritten by a automated tool. */
@@ -12,8 +12,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MMS.data.Entities;
-
-
 namespace MMS.data.Repository
 {
 	public partial interface ITransportationLocationsRepository
@@ -22,14 +20,12 @@ namespace MMS.data.Repository
 		Task<IEnumerable<TransportationLocations>> Search(int pageIndex, int pageSize);
 		Task<IEnumerable<TransportationLocations>> Search(int pageIndex, int pageSize,string sortBy, string orderBy);
 		Task<IEnumerable<TransportationLocations>> Search(int pageIndex, int pageSize,string sortBy, string orderBy,string searchstring);
-		
 		Task<IEnumerable<TransportationLocations>> Search(System.Int64? id, System.String accountID, System.Int32? locationID, System.String locationName);
 		Task<int> Delete(System.Int64? id);
 		Task<System.Int64> Insert(TransportationLocations model);
 		Task<System.Int64> Insert(System.String accountID, System.Int32? locationID, System.String locationName);
 		Task<int> Update(TransportationLocations model);
 		Task<int> Update(System.Int64? id, System.String accountID, System.Int32? locationID, System.String locationName);
-		
 	}
 }
 

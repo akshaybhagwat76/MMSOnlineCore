@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MMS.data.Entities
+﻿namespace MMS.data.Entities
 {
     public class OrderDetail
     {
-       
         public string OrderNumber { get; set; }
         public string ItemName { get; set; }
         public string OrderedWeight { get; set; }

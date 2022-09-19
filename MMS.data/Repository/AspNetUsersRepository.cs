@@ -1,5 +1,5 @@
 /***************************************************************/
-/* Code Writer (written by Anish M Mathew )                                 */
+/* Code Writer (written by Akshay S Bhagwat )                                 */
 /*                                                                          */
 /* This file was automatically generated using Code Writer                  */
 /* Any manual changes to this file will be overwritten by a automated tool. */
@@ -12,7 +12,6 @@
 using System;
 using System.Data;
 using System.Linq;
-using System.Text;
 using System.Collections.Generic;
 using Dapper;
 using System.Threading.Tasks;
@@ -475,8 +474,6 @@ namespace MMS.data.Repository
 			}
 		}
 		#endregion
-		
-		
 	}
 }
 

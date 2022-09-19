@@ -1,5 +1,5 @@
 /***************************************************************/
-/* Code Writer (written by Anish M Mathew )                                 */
+/* Code Writer (written by Akshay S Bhagwat )                                 */
 /*                                                                          */
 /* This file was automatically generated using Code Writer                  */
 /* Any manual changes to this file will be overwritten by a automated tool. */
@@ -11,8 +11,6 @@
 /****************************************************************************/
 using System;
 using System.Data;
-using System.Linq;
-using System.Text;
 using System.Collections.Generic;
 using Dapper;
 using System.Threading.Tasks;
@@ -24,7 +22,6 @@ namespace MMS.data.Repository
 	public partial class UserHistoryRepository : BaseRepository, IUserHistoryRepository
 	{
 		public UserHistoryRepository(IConnectionFactory connectionFactory) : base(connectionFactory) { }
-		
 		
 		#region Search
 		public async Task<IEnumerable<UserHistory>> Search(int pageIndex, int pageSize)
@@ -182,10 +179,6 @@ namespace MMS.data.Repository
 			}
 		}
 		#endregion
-		
-		
-		
-		
 	}
 }
 

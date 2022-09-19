@@ -1,5 +1,5 @@
 /***************************************************************/
-/* Code Writer (written by Anish M Mathew )                                 */
+/* Code Writer (written by Akshay S Bhagwat )                                 */
 /*                                                                          */
 /* This file was automatically generated using Code Writer                  */
 /* Any manual changes to this file will be overwritten by a automated tool. */
@@ -12,8 +12,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MMS.data.Entities;
-
-
 namespace MMS.data.Repository
 {
 	public partial interface ITransactionScalePicturesRepository
@@ -22,14 +20,12 @@ namespace MMS.data.Repository
 		Task<IEnumerable<TransactionScalePictures>> Search(int pageIndex, int pageSize);
 		Task<IEnumerable<TransactionScalePictures>> Search(int pageIndex, int pageSize,string sortBy, string orderBy);
 		Task<IEnumerable<TransactionScalePictures>> Search(int pageIndex, int pageSize,string sortBy, string orderBy,string searchstring);
-		
 		Task<IEnumerable<TransactionScalePictures>> Search(System.Int64? id, System.String accountID, System.String ticketNumber, System.String pictureID, System.String thumbnailURL, System.String fullResURL);
 		Task<int> Delete(System.Int64? id);
 		Task<System.Int64> Insert(TransactionScalePictures model);
 		Task<System.Int64> Insert(System.String accountID, System.String ticketNumber, System.String pictureID, System.String thumbnailURL, System.String fullResURL);
 		Task<int> Update(TransactionScalePictures model);
 		Task<int> Update(System.Int64? id, System.String accountID, System.String ticketNumber, System.String pictureID, System.String thumbnailURL, System.String fullResURL);
-		
 	}
 }
 

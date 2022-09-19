@@ -41,7 +41,6 @@ namespace MMS.web.Areas.Admin.Controllers
         {
             try
             {
-
                 var draw = HttpContext.Request.Form["draw"].FirstOrDefault();
                 var start = Request.Form["start"].FirstOrDefault();
                 var length = Request.Form["length"].FirstOrDefault();

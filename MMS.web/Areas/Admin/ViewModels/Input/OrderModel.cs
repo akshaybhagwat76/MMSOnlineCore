@@ -1,14 +1,9 @@
 ﻿using MMS.data.Entities;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace MMS.web.Areas.Admin.ViewModels.Input
 {
     public class OrderModel
     {
-       
         public List<TransactionDetail> TicketDetails { get; set; }
         public List<OrderDetails> orderDetails { get; set; }
         public string PaymentReceiptURL { get; set; }
@@ -27,9 +22,5 @@ namespace MMS.web.Areas.Admin.ViewModels.Input
         public string DueWeight { get; set; }
         public string Price { get; set; }
 
-
-
-
     }
-
 }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace MMS.web.Models
+﻿namespace MMS.web.Models
 {
     /// <summary>
     /// 

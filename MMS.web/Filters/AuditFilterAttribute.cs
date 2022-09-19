@@ -3,13 +3,7 @@ using Microsoft.AspNetCore.Http.Headers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using MMS.data.UnitOfWork;
-using MMS.web.Extensions;
-using MMS.web.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace MMS.web.Filters
 {
     /// <summary>

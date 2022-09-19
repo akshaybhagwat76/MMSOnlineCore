@@ -1,5 +1,5 @@
 /***************************************************************/
-/* Code Writer (written by Anish M Mathew )                                 */
+/* Code Writer (written by Akshay S Bhagwat )                                 */
 /*                                                                          */
 /* This file was automatically generated using Code Writer                  */
 /* Any manual changes to this file will be overwritten by a automated tool. */
@@ -9,23 +9,18 @@
 /* More Details    --                                                       */
 /*http://visualstudiogallery.msdn.microsoft.com/40d92d45-107e-4f83-b6c5-50a7e2419389*/
 /****************************************************************************/
-using System;
 using System.Data;
 using System.Linq;
-using System.Text;
 using System.Collections.Generic;
 using Dapper;
 using System.Threading.Tasks;
-using MMS.data.Infrastructure;
 using MMS.data.Entities;
-
 namespace MMS.data.Repository
 {
 	public partial class TransactionHeaderRepository : BaseRepository, ITransactionHeaderRepository
 	{
 		public async Task<TransactionHeader> Search(string ticketNo, string accountId)
 		{
-
 			using (var connection = connectionFactory.GetConnection)
 			{
 				var query = "[dbo].Cust_TransactionHeader";
@@ -45,7 +40,6 @@ namespace MMS.data.Repository
 
 		public async Task<IEnumerable<TransactionHeader>> Search(string accountId, int pageIndex, int pageSize, string sortBy, string orderBy, string searchstring)
 		{
-
 			using (var connection = connectionFactory.GetConnection)
 			{
 				var query = "[dbo].Cust_TransactionHeader_CUSTOM";
@@ -66,7 +60,6 @@ namespace MMS.data.Repository
 
 			}
 		}
-
         public async Task<IEnumerable<TransactionDetail>> SearchbyOrderNo(int v1, int v2, string orderNo)
         {
 			using (var connection = connectionFactory.GetConnection)
@@ -82,7 +75,6 @@ namespace MMS.data.Repository
 					return null;
 				else
 					return list;
-
 			}
 		}
 	}

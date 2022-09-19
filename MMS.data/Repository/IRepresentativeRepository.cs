@@ -1,5 +1,5 @@
 /***************************************************************/
-/* Code Writer (written by Anish M Mathew )                                 */
+/* Code Writer (written by Akshay S Bhagwat )                                 */
 /*                                                                          */
 /* This file was automatically generated using Code Writer                  */
 /* Any manual changes to this file will be overwritten by a automated tool. */
@@ -12,8 +12,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MMS.data.Entities;
-
-
 namespace MMS.data.Repository
 {
 	public partial interface IRepresentativeRepository
@@ -22,14 +20,12 @@ namespace MMS.data.Repository
 		Task<IEnumerable<Representative>> Search(int pageIndex, int pageSize);
 		Task<IEnumerable<Representative>> Search(int pageIndex, int pageSize,string sortBy, string orderBy);
 		Task<IEnumerable<Representative>> Search(int pageIndex, int pageSize,string sortBy, string orderBy,string searchstring);
-		
 		Task<IEnumerable<Representative>> Search(System.Int32? id, System.String accountId, System.String name, System.String email, System.String officePhone, System.String cellPhone, System.String imageURL, System.String notes);
 		Task<int> Delete(System.Int32? id);
 		Task<System.Int32> Insert(Representative model);
 		Task<System.Int32> Insert(System.String accountId, System.String name, System.String email, System.String officePhone, System.String cellPhone, System.String imageURL, System.String notes);
 		Task<int> Update(Representative model);
 		Task<int> Update(System.Int32? id, System.String accountId, System.String name, System.String email, System.String officePhone, System.String cellPhone, System.String imageURL, System.String notes);
-		
 	}
 }
 

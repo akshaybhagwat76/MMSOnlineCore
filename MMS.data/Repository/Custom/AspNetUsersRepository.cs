@@ -1,21 +1,15 @@
-
-using System;
 using System.Data;
 using System.Linq;
-using System.Text;
 using System.Collections.Generic;
 using Dapper;
 using System.Threading.Tasks;
 using MMS.data.Entities;
-
 namespace MMS.data.Repository
 {
     public partial class AspNetUsersRepository
     {
-
         public async Task<IEnumerable<AspNetUsers>> Search_Old(int pageIndex, int pageSize, string sortBy, string orderBy, string searchkey)
         {
-
             using (var connection = connectionFactory.GetConnection)
             {
                 var query = "[dbo].cust_AspNetUsers_SEARCH";
@@ -37,7 +31,6 @@ namespace MMS.data.Repository
         }
         public async Task<IEnumerable<AspNetUsers>> SearchByRole(int pageIndex, int pageSize, string sortBy, string orderBy, string searchkey, string Role)
         {
-
             using (var connection = connectionFactory.GetConnection)
             {
                 var query = "[dbo].cust_AspNetUsers_SEARCH_BY_ROLE";
@@ -67,7 +60,6 @@ namespace MMS.data.Repository
                 param.Add(@"id", id, DbType.String);
                 var list = await SqlMapper.QueryAsync<AspNetUsers>(connection, query, param, commandType: CommandType.StoredProcedure);
                 return list.FirstOrDefault();
-
             }
         }
 

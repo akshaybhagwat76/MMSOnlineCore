@@ -1,5 +1,5 @@
 /***************************************************************/
-/* Code Writer (written by Anish M Mathew )                                 */
+/* Code Writer (written by Akshay S Bhagwat )                                 */
 /*                                                                          */
 /* This file was automatically generated using Code Writer                  */
 /* Any manual changes to this file will be overwritten by a automated tool. */
@@ -12,8 +12,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MMS.data.Entities;
-
-
 namespace MMS.data.Repository
 {
 	public partial interface ITransectionSettingRepository
@@ -22,14 +20,12 @@ namespace MMS.data.Repository
 		Task<IEnumerable<TransectionSetting>> Search(int pageIndex, int pageSize);
 		Task<IEnumerable<TransectionSetting>> Search(int pageIndex, int pageSize,string sortBy, string orderBy);
 		Task<IEnumerable<TransectionSetting>> Search(int pageIndex, int pageSize,string sortBy, string orderBy,string searchstring);
-		
 		Task<IEnumerable<TransectionSetting>> Search(System.Int32? id, System.Int32? locationID, System.Int32? commodityID, System.String notes, System.Int32? createdBy, System.DateTime? createdOn);
 		Task<int> Delete(System.Int32? id);
 		Task<System.Int32> Insert(TransectionSetting model);
 		Task<System.Int32> Insert(System.Int32? locationID, System.Int32? commodityID, System.String notes, System.Int32? createdBy, System.DateTime? createdOn);
 		Task<int> Update(TransectionSetting model);
 		Task<int> Update(System.Int32? id, System.Int32? locationID, System.Int32? commodityID, System.String notes, System.Int32? createdBy, System.DateTime? createdOn);
-		
 	}
 }
 

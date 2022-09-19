@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System;
 using System.ComponentModel.DataAnnotations;
-
 namespace MMS.web.Areas.Admin.ViewModels.Input
 {
     /// <summary>
@@ -109,6 +108,5 @@ namespace MMS.web.Areas.Admin.ViewModels.Input
         [Required(ErrorMessage = "Please Enter Password")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
-
     }
 }

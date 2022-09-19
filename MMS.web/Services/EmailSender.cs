@@ -1,5 +1,4 @@
-﻿
-using MMS.web.Config;
+﻿using MMS.web.Config;
 using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Options;
@@ -8,7 +7,6 @@ using MimeKit.Text;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 using MailKit.Security;
 using System.Net;

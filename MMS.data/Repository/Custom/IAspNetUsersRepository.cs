@@ -1,10 +1,7 @@
-
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MMS.data.Entities;
- 
-
 namespace MMS.data.Repository
 {
 	public partial interface IAspNetUsersRepository

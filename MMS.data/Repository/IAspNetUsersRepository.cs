@@ -1,5 +1,5 @@
 /***************************************************************/
-/* Code Writer (written by Anish M Mathew )                                 */
+/* Code Writer (written by Akshay S Bhagwat )                                 */
 /*                                                                          */
 /* This file was automatically generated using Code Writer                  */
 /* Any manual changes to this file will be overwritten by a automated tool. */
@@ -12,8 +12,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MMS.data.Entities;
-
-
 namespace MMS.data.Repository
 {
 	public partial interface IAspNetUsersRepository
@@ -22,14 +20,12 @@ namespace MMS.data.Repository
 		Task<IEnumerable<AspNetUsers>> Search(int pageIndex, int pageSize);
 		Task<IEnumerable<AspNetUsers>> Search(int pageIndex, int pageSize,string sortBy, string orderBy);
 		Task<IEnumerable<AspNetUsers>> Search(int pageIndex, int pageSize,string sortBy, string orderBy,string searchstring);
-		
 		Task<IEnumerable<AspNetUsers>> Search(System.Guid? id, System.String userName, System.String normalizedUserName, System.String email, System.String normalizedEmail, System.Boolean? emailConfirmed, System.String passwordHash, System.String securityStamp, System.String concurrencyStamp, System.String phoneNumber, System.Boolean? phoneNumberConfirmed, System.Boolean? twoFactorEnabled, System.DateTimeOffset lockoutEnd, System.Boolean? lockoutEnabled, System.Int32? accessFailedCount, System.DateTime? joinTime, System.DateTime? dob, System.Int32? cid, System.String userImage, System.String title, System.String firstName, System.String surname, System.String lastName, System.String address, System.Int32? countryID, System.String pinCode, System.String gender, System.String companyName, System.Boolean? isActive, System.Boolean? isDeleted, System.String lastUpdatedBy, System.DateTime? lastUpdatedOn, System.String accountID);
 		Task<int> Delete(System.Guid? id);
 		Task<int> Insert(AspNetUsers model);
 		Task<int> Insert(System.Guid? id, System.String userName, System.String normalizedUserName, System.String email, System.String normalizedEmail, System.Boolean? emailConfirmed, System.String passwordHash, System.String securityStamp, System.String concurrencyStamp, System.String phoneNumber, System.Boolean? phoneNumberConfirmed, System.Boolean? twoFactorEnabled, System.DateTimeOffset lockoutEnd, System.Boolean? lockoutEnabled, System.Int32? accessFailedCount, System.DateTime? joinTime, System.DateTime? dob, System.Int32? cid, System.String userImage, System.String title, System.String firstName, System.String surname, System.String lastName, System.String address, System.Int32? countryID, System.String pinCode, System.String gender, System.String companyName, System.Boolean? isActive, System.Boolean? isDeleted, System.String lastUpdatedBy, System.DateTime? lastUpdatedOn, System.String accountID);
 		Task<int> Update(AspNetUsers model);
 		Task<int> Update(System.Guid? id, System.String userName, System.String normalizedUserName, System.String email, System.String normalizedEmail, System.Boolean? emailConfirmed, System.String passwordHash, System.String securityStamp, System.String concurrencyStamp, System.String phoneNumber, System.Boolean? phoneNumberConfirmed, System.Boolean? twoFactorEnabled, System.DateTimeOffset lockoutEnd, System.Boolean? lockoutEnabled, System.Int32? accessFailedCount, System.DateTime? joinTime, System.DateTime? dob, System.Int32? cid, System.String userImage, System.String title, System.String firstName, System.String surname, System.String lastName, System.String address, System.Int32? countryID, System.String pinCode, System.String gender, System.String companyName, System.Boolean? isActive, System.Boolean? isDeleted, System.String lastUpdatedBy, System.DateTime? lastUpdatedOn, System.String accountID);
-		
 	}
 }
 

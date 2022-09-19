@@ -1,5 +1,5 @@
 /***************************************************************/
-/* Code Writer (written by Anish M Mathew )                                 */
+/* Code Writer (written by Akshay S Bhagwat )                                 */
 /*                                                                          */
 /* This file was automatically generated using Code Writer                  */
 /* Any manual changes to this file will be overwritten by a automated tool. */
@@ -12,8 +12,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MMS.data.Entities;
-
-
 namespace MMS.data.Repository
 {
 	public partial interface IUsersRepository
@@ -22,16 +20,13 @@ namespace MMS.data.Repository
 		Task<IEnumerable<Users>> Search(int pageIndex, int pageSize);
 		Task<IEnumerable<Users>> Search(int pageIndex, int pageSize,string sortBy, string orderBy);
 		Task<IEnumerable<Users>> Search(int pageIndex, int pageSize,string sortBy, string orderBy,string searchstring);
-		
 		Task<IEnumerable<Users>> Search(System.Int32? userID, System.String emailAddress, System.String name, System.Byte[] passwordHash, System.String salt, System.Int32? passwordVersion, System.Boolean? accountDisabled, System.String accountID);
 		Task<int> Delete(System.Int32? userID);
 		Task<int> Insert(Users model);
 		string GetConnectingString();
-
 		Task<int> Insert(System.Int32? userID, System.String emailAddress, System.String name, System.Byte[] passwordHash, System.String salt, System.Int32? passwordVersion, System.Boolean? accountDisabled, System.String accountID);
 		Task<int> Update(Users model);
 		Task<int> Update(System.Int32? userID, System.String emailAddress, System.String name, System.Byte[] passwordHash, System.String salt, System.Int32? passwordVersion, System.Boolean? accountDisabled, System.String accountID);
-		
 	}
 }
 

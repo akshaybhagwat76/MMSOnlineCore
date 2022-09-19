@@ -1,5 +1,5 @@
 /***************************************************************/
-/* Code Writer (written by Anish M Mathew )                                 */
+/* Code Writer (written by Akshay S Bhagwat )                                 */
 /*                                                                          */
 /* This file was automatically generated using Code Writer                  */
 /* Any manual changes to this file will be overwritten by a automated tool. */
@@ -9,23 +9,16 @@
 /* More Details    --                                                       */
 /*http://visualstudiogallery.msdn.microsoft.com/40d92d45-107e-4f83-b6c5-50a7e2419389*/
 /****************************************************************************/
-using System;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Collections.Generic;
 using Dapper;
 using System.Threading.Tasks;
-using MMS.data.Infrastructure;
 using MMS.data.Entities;
 using Microsoft.Extensions.Configuration;
-using System.IO;
-
 namespace MMS.data.Repository
 {
 	public partial class UsersRepository : BaseRepository, IUsersRepository
 	{
-	
 		public IConfigurationRoot Configuration { get; }
 		public string GetConnectingString()
 		{
@@ -40,7 +33,6 @@ namespace MMS.data.Repository
 				param.Add(@"email", email);
 				var list = await SqlMapper.QueryAsync<Users>(connection, query, param, commandType: CommandType.StoredProcedure);
 				return list.FirstOrDefault();
-
 			}
 		}
 	}

@@ -1,5 +1,3 @@
-using System;
-
 namespace MMS.web.Models
 {
     /// <summary>

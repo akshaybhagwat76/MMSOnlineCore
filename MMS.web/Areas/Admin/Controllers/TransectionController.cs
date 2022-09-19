@@ -1,11 +1,6 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
+﻿using MMS.data.UnitOfWork;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.Options;
-using MMS.data.UnitOfWork;
 using MMS.web.Areas.Admin.ViewModels.Input;
-using MMS.web.Config;
 using MMS.web.Filters;
 using System;
 using System.Collections.Generic;

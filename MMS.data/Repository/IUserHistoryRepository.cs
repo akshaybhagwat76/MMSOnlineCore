@@ -1,5 +1,5 @@
 /***************************************************************/
-/* Code Writer (written by Anish M Mathew )                                 */
+/* Code Writer (written by Akshay S Bhagwat )                                 */
 /*                                                                          */
 /* This file was automatically generated using Code Writer                  */
 /* Any manual changes to this file will be overwritten by a automated tool. */
@@ -12,8 +12,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MMS.data.Entities;
-
-
 namespace MMS.data.Repository
 {
 	public partial interface IUserHistoryRepository
@@ -21,7 +19,6 @@ namespace MMS.data.Repository
 		Task<IEnumerable<UserHistory>> Search(int pageIndex, int pageSize);
 		Task<IEnumerable<UserHistory>> Search(int pageIndex, int pageSize,string sortBy, string orderBy);
 		Task<IEnumerable<UserHistory>> Search(int pageIndex, int pageSize,string sortBy, string orderBy,string searchstring);
-		
 		Task<IEnumerable<UserHistory>> Search(System.Guid? userID, System.DateTime? eventDate, System.String ip, System.String eventType, System.String details);
 		Task<int> Insert(UserHistory model);
 		Task<int> Insert(System.Guid? userID, System.DateTime? eventDate, System.String ip, System.String eventType, System.String details);

@@ -1,5 +1,5 @@
 /***************************************************************/
-/* Code Writer (written by Anish M Mathew )                                 */
+/* Code Writer (written by Akshay S Bhagwat )                                 */
 /*                                                                          */
 /* This file was automatically generated using Code Writer                  */
 /* Any manual changes to this file will be overwritten by a automated tool. */
@@ -10,7 +10,6 @@
 /*http://visualstudiogallery.msdn.microsoft.com/40d92d45-107e-4f83-b6c5-50a7e2419389*/
 /****************************************************************************/
 using System;
-
 using MMS.data.Repository;
 using MMS.data.Infrastructure;
 namespace MMS.data.UnitOfWork
@@ -18,7 +17,6 @@ namespace MMS.data.UnitOfWork
 	
 	public class UnitOfWork : IUnitOfWork
 	{
-
 		public IAspNetUsersRepository _aspnetusersRepository;
 		public IRepresentativeRepository _representativeRepository;
 		public ITransactionDetailRepository _transactiondetailRepository;

@@ -1,20 +1,12 @@
-﻿using System;
-using System.Data;
-using System.Linq;
-using System.Text;
+﻿using System.Data;
 using System.Collections.Generic;
 using Dapper;
 using System.Threading.Tasks;
-using MMS.data.Infrastructure;
 using MMS.data.Entities;
-
 namespace MMS.data.Repository
 {
-   
 	public partial class OrderDetailRepository : BaseRepository, IOrderDetailRepository
 	{
-       
-
         public async Task<IEnumerable<OrderDetail>> Search(string OrderNo)
 		{
 
@@ -33,7 +25,5 @@ namespace MMS.data.Repository
 
 			}
 		}
-
-        
     }
 }
